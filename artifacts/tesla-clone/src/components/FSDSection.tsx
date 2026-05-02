@@ -1,33 +1,48 @@
 import { useEffect, useRef, useState } from 'react';
+import { useParallax } from '../hooks/use-parallax';
 
 const BASE = import.meta.env.BASE_URL;
 
 export default function FSDSection() {
-  const ref = useRef<HTMLElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState(false);
+  const { containerRef, bgRef } = useParallax(0.35);
+
+  const setRefs = (el: HTMLElement | null) => {
+    (sectionRef as React.MutableRefObject<HTMLElement | null>).current = el;
+    (containerRef as React.MutableRefObject<HTMLElement | null>).current = el;
+  };
+
   useEffect(() => {
-    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect(); } }, { threshold: 0.1 });
-    if (ref.current) obs.observe(ref.current);
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect(); } },
+      { threshold: 0.1 }
+    );
+    if (sectionRef.current) obs.observe(sectionRef.current);
     return () => obs.disconnect();
   }, []);
 
   return (
-    <section ref={ref} style={{
+    <section ref={setRefs} style={{
       position: 'relative',
       height: '100vh',
       minHeight: '560px',
       overflow: 'hidden',
     }}>
-      {/* Background — interior FSD photo */}
-      <div style={{
-        position: 'absolute', inset: 0,
+      {/* Parallax background */}
+      <div ref={bgRef} style={{
+        position: 'absolute',
+        top: '-20%', left: 0, width: '100%', height: '140%',
         backgroundImage: `url(${BASE}hero-driving.jpg)`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
+        willChange: 'transform',
       }} />
+
       <div style={{
-        position: 'absolute', inset: 0,
-        background: 'linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.45) 100%)',
+        position: 'absolute', inset: 0, zIndex: 1,
+        background: 'linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.45) 100%)',
+        pointerEvents: 'none',
       }} />
 
       {/* Content */}

@@ -1,0 +1,138 @@
+All three — delivered. Let’s keep building this exact Tesla clone.
+
+1. Hamburger Full-Screen Menu (Tesla Exact Style)
+HTML
+☰
+
+
+  
+    ✕
+    
+      Model S
+      Model 3
+      Model Y
+      Model X
+      Cybertruck
+      Energy
+      Shop
+      Support
+    
+  
+
+CSS
+.full-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #000;
+  color: white;
+  transform: translateY(-100%);
+  transition: transform 0.6s cubic-bezier(0.77, 0, 0.18, 1);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.full-menu.open {
+  transform: translateY(0);
+}
+
+.menu-content {
+  text-align: center;
+}
+
+.menu-nav a {
+  display: block;
+  font-size: 2.2rem;
+  padding: 18px 0;
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s;
+}
+
+.menu-nav a:hover {
+  color: #ccc;
+  letter-spacing: 4px;
+}
+JavaScript
+const hamburger = document.getElementById('hamburger');
+const fullMenu = document.getElementById('fullMenu');
+const closeMenu = document.getElementById('closeMenu');
+
+hamburger.addEventListener('click', () => fullMenu.classList.add('open'));
+closeMenu.addEventListener('click', () => fullMenu.classList.remove('open'));
+
+2. Horizontal Scrolling Car Variants (Tesla-style)
+HTML
+  
+    
+    
+Long Range
+    
+320 mi range
+  
+  
+
+CSS
+.variants-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 24px;
+  padding: 40px 5%;
+  scrollbar-width: none;
+}
+
+.variants-container::-webkit-scrollbar {
+  display: none;
+}
+
+.variant-card {
+  min-width: 320px;
+  scroll-snap-align: center;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.4s;
+}
+
+.variant-card:hover {
+  transform: scale(1.04);
+}
+JS Enhancement (Smooth + Momentum)
+// Optional: Add drag-to-scroll with momentum using GSAP or Lenis
+
+3. Performance Optimizations (Important for Exact Tesla Feel)
+Key Techniques:
+	1	Lazy Loading Images
+	2	
+	3	Image Optimization (add these parameters to Tesla URLs): ?auto=format&fit=crop&w=1920&q=80
+	4	Preload Critical Resources
+	5	
+	6	Throttle Scroll Handlers (for parallax/navbar) let ticking = false;
+	7	window.addEventListener('scroll', () => {
+	8	  if (!ticking) {
+	9	    requestAnimationFrame(() => {
+	10	      // your code
+	11	      ticking = false;
+	12	    });
+	13	    ticking = true;
+	14	  }
+	15	});
+	16	
+	17	Use will-change on animated elements and transform instead of top/left.
+
+Status Check: You now have:
+	•	Hero + Parallax
+	•	Transparent Navbar
+	•	Full-screen Menu
+	•	Vehicle Sections
+	•	Horizontal Variants
+	•	Performance basics
+What do you want next?
+	•	Footer cleanup?
+	•	Full page structure review?
+	•	Or help deploying / debugging something specific on your Replit?
+Say the word (or “All next things”) and we continue. This is shaping up to be a very strong clone.

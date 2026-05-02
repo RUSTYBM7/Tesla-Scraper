@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useParallax } from '../hooks/use-parallax';
 
 const BASE = import.meta.env.BASE_URL;
 
@@ -38,35 +39,63 @@ const cards = [
 ];
 
 function ECard({ c, i }: { c: typeof cards[0]; i: number }) {
-  const ref = useRef<HTMLDivElement>(null);
   const [vis, setVis] = useState(false);
-  useEffect(() => {
-    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setVis(true); obs.disconnect(); } }, { threshold: 0.1 });
-    if (ref.current) obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, []);
+  const { containerRef, bgRef } = useParallax(0.28);
+
+  const setRef = (el: HTMLDivElement | null) => {
+    (containerRef as React.MutableRefObject<HTMLElement | null>).current = el;
+    if (!el) return;
+    const obs = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { setVis(true); obs.disconnect(); }
+    }, { threshold: 0.1 });
+    obs.observe(el);
+  };
+
   const tc = c.light ? '#fff' : '#171a20';
+
   return (
-    <div ref={ref} style={{
-      position: 'relative', height: '68vh', minHeight: '420px', overflow: 'hidden', background: '#111',
-      opacity: vis ? 1 : 0, transform: vis ? 'translateY(0)' : 'translateY(24px)',
+    <div ref={setRef} style={{
+      position: 'relative',
+      height: '68vh',
+      minHeight: '420px',
+      overflow: 'hidden',
+      background: '#111',
+      opacity: vis ? 1 : 0,
+      transform: vis ? 'translateY(0)' : 'translateY(24px)',
       transition: `opacity .7s ease ${i * 0.1}s, transform .7s ease ${i * 0.1}s`,
     }}>
-      <div style={{
-        position: 'absolute', inset: 0,
-        backgroundImage: `url(${c.img})`, backgroundSize: 'cover', backgroundPosition: c.imgPos,
-        transition: 'transform .55s cubic-bezier(.4,0,.2,1)',
+      {/* Parallax background */}
+      <div ref={bgRef} style={{
+        position: 'absolute',
+        top: '-20%', left: 0, width: '100%', height: '140%',
+        backgroundImage: `url(${c.img})`,
+        backgroundSize: 'cover',
+        backgroundPosition: c.imgPos,
+        willChange: 'transform',
+        transition: 'transform 0.55s cubic-bezier(0.4,0,0.2,1)',
       }}
-        onMouseEnter={e => (e.currentTarget as HTMLElement).style.transform = 'scale(1.04)'}
-        onMouseLeave={e => (e.currentTarget as HTMLElement).style.transform = 'scale(1)'}
+        onMouseEnter={e => {
+          const el = e.currentTarget as HTMLElement;
+          const cur = new DOMMatrix(getComputedStyle(el).transform);
+          el.style.transform = `translateY(${cur.m42}px) scale(1.05)`;
+        }}
+        onMouseLeave={e => {
+          const el = e.currentTarget as HTMLElement;
+          const cur = new DOMMatrix(getComputedStyle(el).transform);
+          el.style.transform = `translateY(${cur.m42}px) scale(1)`;
+        }}
       />
+
+      {/* Gradient overlay */}
       <div style={{
         position: 'absolute', inset: 0,
         background: c.light
-          ? 'linear-gradient(180deg,rgba(0,0,0,.08) 0%,rgba(0,0,0,.52) 100%)'
-          : 'linear-gradient(180deg,rgba(255,255,255,.06) 0%,rgba(0,0,0,.28) 100%)',
+          ? 'linear-gradient(180deg,rgba(0,0,0,.05) 0%,rgba(0,0,0,.55) 100%)'
+          : 'linear-gradient(180deg,rgba(255,255,255,.04) 0%,rgba(0,0,0,.30) 100%)',
         pointerEvents: 'none',
       }} />
+
+      {/* Bottom content */}
       <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '24px 28px 28px', zIndex: 2, textAlign: 'center' }}>
         <h3 style={{ fontSize: '26px', fontWeight: 600, color: tc, marginBottom: '6px', textShadow: c.light ? '0 1px 5px rgba(0,0,0,.3)' : 'none' }}>{c.title}</h3>
         <p style={{ fontSize: '14px', color: c.light ? 'rgba(255,255,255,.82)' : '#5c5e62', marginBottom: '20px' }}>{c.sub}</p>

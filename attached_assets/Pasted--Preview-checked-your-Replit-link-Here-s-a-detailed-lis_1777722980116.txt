@@ -1,0 +1,31 @@
+ Preview checked (your Replit link)
+Here’s a detailed list of key improvements missing compared to the current real Tesla.com (as of May 2026) for a true pixel-perfect / exact clone:
+1. Hero Section & Video Background
+•  Real Tesla uses a full-bleed high-quality video loop (or very optimized image sequence) that plays automatically with subtle parallax/movement.
+•  Text overlay is perfectly centered with specific font weights and spacing.
+•  “Order Now” / “Demo Drive” buttons have hover animations and exact styling.
+2. Navigation / Menu
+•  Top bar becomes semi-transparent on scroll with smooth transition.
+•  Hamburger menu opens a full-screen overlay with smooth animation.
+•  Subtle hover effects on desktop nav items.
+•  Location-based language/region selector.
+3. Scroll Animations & Section Transitions
+•  Parallax scrolling on background images/videos (content stays, background moves slower).
+•  Sections fade in / slide up with Intersection Observer timing.
+•  Many sections have horizontal scroll carousels for variants.
+•  Smooth snap-scrolling behavior on some sections.
+4. Vehicle Showcase Sections
+•  High-resolution official Tesla photos (not compressed).
+•  Hover/click interactions that reveal more details or expand.
+•  Exact typography, spacing, and button placement for each model (Model 3, Y, S, X, Cybertruck, etc.).
+•  “Learn More” and “Order Now” buttons with precise styling.
+5. Performance & Polish
+•  Ultra-fast loading (Tesla uses heavy optimization + lazy loading + WebP/AVIF).
+•  Proper mobile responsiveness — especially the mobile menu and touch interactions.
+•  Micro-interactions (button presses, hover states, cursor effects).
+•  Footer with exact column layout, links, and legal text.
+6. Other Tesla-specific Details
+•  Consistent minimalist black/white/red color scheme and typography (Tesla’s custom font).
+•  Accessibility features (ARIA labels, keyboard navigation).
+•  SEO-friendly meta + proper heading hierarchy.
+•  “Full Self-Driving (Supervised)” text appears in multiple places.

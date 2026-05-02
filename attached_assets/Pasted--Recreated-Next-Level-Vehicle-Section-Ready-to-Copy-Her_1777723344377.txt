@@ -1,0 +1,148 @@
+✅ Recreated – Next Level Vehicle Section (Ready to Copy)
+Here’s a clean, high-fidelity recreation of a Tesla-style vehicle showcase section (Model Y example) with parallax background, proper typography, and exact button behavior:
+Full Recreated Section Code
+
+  
+
+  
+  
+    
+      
+Model Y
+      
+The Future of Driving
+      
+      
+        From $44,990
+        After Federal Tax Credit
+      
+
+      
+        
+          320 mi
+          Range
+        
+        
+          135 mph
+          Top Speed
+        
+        
+          3.5 s
+          0-60 mph
+        
+      
+
+      
+        Order Now
+        Learn More
+      
+    
+  
+
+CSS (Tesla Minimal Aesthetic)
+.vehicle-section {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  overflow: hidden;
+}
+
+.section-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: -2;
+  transition: transform 0.1s ease-out;
+}
+
+.content-wrapper {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 720px;
+  padding: 0 20px;
+}
+
+.vehicle-info h1 {
+  font-size: 4.5rem;
+  font-weight: 500;
+  letter-spacing: -2px;
+  margin: 0 0 8px 0;
+}
+
+.tagline {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.pricing {
+  margin-bottom: 2.5rem;
+}
+
+.price {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.key-specs {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-bottom: 3rem;
+}
+
+.action-buttons button {
+  padding: 14px 40px;
+  margin: 0 10px;
+  font-size: 1.1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: #fff;
+  color: #000;
+  border: none;
+}
+
+.btn-primary:hover {
+  background: #ccc;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #fff;
+  border: 3px solid #fff;
+}
+
+.btn-secondary:hover {
+  background: #fff;
+  color: #000;
+}
+GSAP Parallax for This Section
+gsap.to("#bg-model-y", {
+  yPercent: -30,
+  ease: "none",
+  scrollTrigger: {
+    trigger: "#model-y",
+    start: "top top",
+    end: "bottom top",
+    scrub: true
+  }
+});
+
+How to use:
+	1	Paste the HTML into your page.
+	2	Set the background image on .section-bg using one of the URLs I gave earlier.
+	3	Add the GSAP script.
+Would you like me to recreate the next section (e.g. Model 3, Cybertruck, or the footer)?
+Just say which section you want recreated next.

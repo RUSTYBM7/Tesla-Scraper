@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useParallax } from '../hooks/use-parallax';
 
 const BASE = import.meta.env.BASE_URL;
 
@@ -7,28 +8,32 @@ interface Vehicle {
   subtitle: string;
   img: string;
   imgPos: string;
-  darkText?: boolean;
 }
 
 const vehicles: Vehicle[] = [
-  { label: 'Model S', subtitle: 'Sport Sedan', img: `${BASE}grid-model-s.jpg`, imgPos: 'center center' },
-  { label: 'Model Y', subtitle: 'Midsize SUV',  img: `${BASE}grid-model-y.jpg`, imgPos: 'center 55%' },
+  { label: 'Model S', subtitle: 'Sport Sedan',   img: `${BASE}grid-model-s.jpg`, imgPos: 'center center' },
+  { label: 'Model Y', subtitle: 'Midsize SUV',   img: `${BASE}grid-model-y.jpg`, imgPos: 'center 55%' },
   { label: 'Model 3', subtitle: 'Compact Sedan', img: `${BASE}grid-model-3.jpg`, imgPos: 'center center' },
   { label: 'Model X', subtitle: 'Full-Size SUV', img: `${BASE}grid-model-x.jpg`, imgPos: 'center center' },
-  { label: 'Cybertruck', subtitle: 'Pickup Truck', img: `${BASE}grid-cybertruck.jpg`, imgPos: 'center center', darkText: false },
+  { label: 'Cybertruck', subtitle: 'Pickup Truck', img: `${BASE}grid-cybertruck.jpg`, imgPos: 'center center' },
 ];
 
 function Card({ v, isLast, idx }: { v: Vehicle; isLast: boolean; idx: number }) {
-  const ref = useRef<HTMLDivElement>(null);
   const [vis, setVis] = useState(false);
-  useEffect(() => {
-    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setVis(true); obs.disconnect(); } }, { threshold: 0.12 });
-    if (ref.current) obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, []);
+  const { containerRef, bgRef } = useParallax(0.28);
+
+  // Wrap the container ref to also observe for visibility
+  const setRef = (el: HTMLDivElement | null) => {
+    (containerRef as React.MutableRefObject<HTMLElement | null>).current = el;
+    if (!el) return;
+    const obs = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { setVis(true); obs.disconnect(); }
+    }, { threshold: 0.12 });
+    obs.observe(el);
+  };
 
   return (
-    <div ref={ref} style={{
+    <div ref={setRef} style={{
       position: 'relative',
       height: isLast ? '52vh' : '68vh',
       minHeight: isLast ? '360px' : '420px',
@@ -39,32 +44,42 @@ function Card({ v, isLast, idx }: { v: Vehicle; isLast: boolean; idx: number }) 
       transition: `opacity .7s ease ${idx * 0.08}s, transform .7s ease ${idx * 0.08}s`,
       background: '#1a1a1a',
     }}>
-      {/* Photo with Ken Burns effect on hover */}
-      <div style={{
-        position: 'absolute', inset: 0,
+      {/* Parallax bg — oversized with Ken Burns on hover */}
+      <div ref={bgRef} style={{
+        position: 'absolute',
+        top: '-20%', left: 0, width: '100%', height: '140%',
         backgroundImage: `url(${v.img})`,
         backgroundSize: 'cover',
         backgroundPosition: v.imgPos,
+        willChange: 'transform',
         transition: 'transform 0.55s cubic-bezier(0.4,0,0.2,1)',
       }}
-        onMouseEnter={e => (e.currentTarget as HTMLElement).style.transform = 'scale(1.04)'}
-        onMouseLeave={e => (e.currentTarget as HTMLElement).style.transform = 'scale(1)'}
+        onMouseEnter={e => {
+          const el = e.currentTarget as HTMLElement;
+          const cur = new DOMMatrix(getComputedStyle(el).transform);
+          el.style.transform = `translateY(${cur.m42}px) scale(1.05)`;
+        }}
+        onMouseLeave={e => {
+          const el = e.currentTarget as HTMLElement;
+          const cur = new DOMMatrix(getComputedStyle(el).transform);
+          el.style.transform = `translateY(${cur.m42}px) scale(1)`;
+        }}
       />
 
       {/* Bottom gradient */}
       <div style={{
         position: 'absolute', inset: 0,
-        background: 'linear-gradient(to bottom,transparent 40%,rgba(0,0,0,0.62) 100%)',
+        background: 'linear-gradient(to bottom,transparent 35%,rgba(0,0,0,0.65) 100%)',
         pointerEvents: 'none',
       }} />
 
-      {/* Label — top left */}
+      {/* Label top-left */}
       <div style={{ position: 'absolute', top: '24px', left: '28px', zIndex: 2 }}>
         <div style={{ fontSize: '11px', fontWeight: 600, color: 'rgba(255,255,255,0.72)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>{v.subtitle}</div>
         <div style={{ fontSize: '22px', fontWeight: 600, color: '#fff', marginTop: '2px', letterSpacing: '-0.2px' }}>{v.label}</div>
       </div>
 
-      {/* CTAs — bottom center */}
+      {/* CTAs bottom center */}
       <div style={{ position: 'absolute', bottom: '22px', left: 0, right: 0, display: 'flex', justifyContent: 'center', gap: '12px', zIndex: 2 }}>
         <button style={{
           padding: '10px 28px', borderRadius: '4px', fontSize: '13px', fontWeight: 500,

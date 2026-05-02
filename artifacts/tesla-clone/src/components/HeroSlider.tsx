@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { useParallax } from '../hooks/use-parallax';
 
 const BASE = import.meta.env.BASE_URL;
 
@@ -67,6 +68,22 @@ export default function HeroSlider() {
   const [fade, setFade] = useState(true);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
+  // Hero parallax — for hero we just translate on scrollY directly
+  const bgGroupRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    let raf: number | null = null;
+    const update = () => {
+      raf = null;
+      if (bgGroupRef.current) {
+        bgGroupRef.current.style.transform = `translateY(${window.scrollY * 0.4}px)`;
+      }
+    };
+    const onScroll = () => { if (raf === null) raf = requestAnimationFrame(update); };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => { window.removeEventListener('scroll', onScroll); if (raf) cancelAnimationFrame(raf); };
+  }, []);
+
   const goTo = (idx: number) => {
     if (idx === current) return;
     setFade(false);
@@ -96,28 +113,36 @@ export default function HeroSlider() {
 
   return (
     <section style={{ position: 'relative', width: '100%', height: '100vh', overflow: 'hidden', background: '#0d1b2e' }}>
-      {/* Stacked crossfade backgrounds */}
-      {slides.map((s, i) => (
-        <div key={s.id} style={{
-          position: 'absolute', inset: 0,
-          backgroundImage: `url(${s.img})`,
-          backgroundSize: 'cover',
-          backgroundPosition: s.imgPos || 'center center',
-          opacity: i === current ? (fade ? 1 : 0) : 0,
-          transition: 'opacity 0.65s cubic-bezier(0.4,0,0.2,1)',
-        }} />
-      ))}
+      {/* Parallax background group — oversized so translateY has room */}
+      <div ref={bgGroupRef} style={{
+        position: 'absolute',
+        top: '-15%', left: 0, width: '100%', height: '130%',
+        willChange: 'transform',
+        pointerEvents: 'none',
+      }}>
+        {slides.map((s, i) => (
+          <div key={s.id} style={{
+            position: 'absolute', inset: 0,
+            backgroundImage: `url(${s.img})`,
+            backgroundSize: 'cover',
+            backgroundPosition: s.imgPos || 'center center',
+            opacity: i === current ? (fade ? 1 : 0) : 0,
+            transition: 'opacity 0.65s cubic-bezier(0.4,0,0.2,1)',
+          }} />
+        ))}
+      </div>
 
       {/* Scrim */}
       <div style={{
-        position: 'absolute', inset: 0,
+        position: 'absolute', inset: 0, zIndex: 1,
         background: slide.textLight
           ? 'linear-gradient(180deg,rgba(0,0,0,.28) 0%,rgba(0,0,0,.04) 45%,rgba(0,0,0,.18) 100%)'
           : 'linear-gradient(180deg,rgba(255,255,255,.18) 0%,transparent 40%)',
         transition: 'background 0.6s ease',
+        pointerEvents: 'none',
       }} />
 
-      {/* Headline + CTA — top-anchored like Tesla */}
+      {/* Headline + CTA */}
       <div style={{
         position: 'absolute',
         top: '13%',
@@ -143,7 +168,6 @@ export default function HeroSlider() {
           textShadow: slide.textLight ? '0 1px 4px rgba(0,0,0,.3)' : 'none',
         }}>{slide.subtitle}</p>
         <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-          {/* Primary */}
           <a href="#" style={{
             padding: '11px 38px', borderRadius: '4px', fontSize: '14px', fontWeight: 500,
             background: slide.btnPrimaryStyle === 'blue' ? '#3e6ae1' : 'rgba(23,26,32,0.82)',
@@ -153,7 +177,6 @@ export default function HeroSlider() {
             onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = slide.btnPrimaryStyle === 'blue' ? '#2d58cc' : 'rgba(23,26,32,1)'; (e.currentTarget as HTMLElement).style.transform = 'scale(1.025)'; }}
             onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = slide.btnPrimaryStyle === 'blue' ? '#3e6ae1' : 'rgba(23,26,32,0.82)'; (e.currentTarget as HTMLElement).style.transform = 'scale(1)'; }}
           >{slide.btnPrimary}</a>
-          {/* Secondary */}
           <a href="#" style={{
             padding: '11px 38px', borderRadius: '4px', fontSize: '14px', fontWeight: 500,
             background: 'rgba(255,255,255,0.70)', color: '#171a20', minWidth: '196px', textAlign: 'center',
