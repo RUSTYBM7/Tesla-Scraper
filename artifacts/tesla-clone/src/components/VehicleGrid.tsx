@@ -14,11 +14,11 @@ interface Vehicle {
 }
 
 const vehicles: Vehicle[] = [
-  { label: 'Model S', subtitle: 'Relentless Performance', slug: 'model-s', img: `${BASE}grid-model-s.jpg`, imgPos: 'center 50%', price: 'Starting at $74,990', textLight: true },
-  { label: 'Model Y', subtitle: "America's Best-Selling Vehicle", slug: 'model-y', img: `${BASE}grid-model-y.jpg`, imgPos: 'center 50%', price: 'Starting at $44,990', textLight: false },
-  { label: 'Model 3', subtitle: 'Order. Drive. Enjoy.', slug: 'model-3', img: `${BASE}grid-model-3.jpg`, imgPos: 'center 50%', price: 'Starting at $40,240', textLight: false },
-  { label: 'Model X', subtitle: 'Beyond Ludicrous', slug: 'model-x', img: `${BASE}grid-model-x2.jpg`, imgPos: 'center 50%', price: 'Starting at $79,990', textLight: true },
-  { label: 'Cybertruck', subtitle: 'Built for Any Planet', slug: 'cybertruck', img: `${BASE}truck-candidate.jpg`, imgPos: 'center 40%', price: 'Starting at $79,990', textLight: true },
+  { label: 'Model S', subtitle: 'Relentless Performance', slug: 'model-s', img: `${BASE}dl-hero-model-s.jpg`, imgPos: 'center 45%', price: 'Starting at $74,990', textLight: true },
+  { label: 'Model Y', subtitle: "America's Best-Selling Vehicle", slug: 'model-y', img: `${BASE}dl-hero-model-y.jpg`, imgPos: 'center 45%', price: 'Starting at $44,990', textLight: true },
+  { label: 'Model 3', subtitle: 'Order. Drive. Enjoy.', slug: 'model-3', img: `${BASE}dl-hero-model-3.jpg`, imgPos: 'center 45%', price: 'Starting at $40,240', textLight: true },
+  { label: 'Model X', subtitle: 'Beyond Ludicrous', slug: 'model-x', img: `${BASE}dl-hero-model-x.jpg`, imgPos: 'center 45%', price: 'Starting at $79,990', textLight: true },
+  { label: 'Cybertruck', subtitle: 'Built for Any Planet', slug: 'cybertruck', img: `${BASE}Cybertruck-Main-Hero-Desktop.jpg`, imgPos: 'center 40%', price: 'Starting at $79,990', textLight: true },
 ];
 
 function VehicleSection({ v, idx }: { v: Vehicle; idx: number }) {

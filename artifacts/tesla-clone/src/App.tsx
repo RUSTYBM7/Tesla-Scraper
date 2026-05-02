@@ -5,7 +5,6 @@ import HomePage from './pages/HomePage';
 import VehiclePage from './pages/VehiclePage';
 import ComparePage from './pages/ComparePage';
 import GalleryPage from './pages/GalleryPage';
-import ImgCheck from './pages/ImgCheck';
 import ContactPage from './pages/ContactPage';
 import NotFound from './pages/not-found';
 
@@ -19,7 +18,6 @@ export default function App() {
           <Route path="/vehicles/:slug" element={<VehiclePage />} />
           <Route path="/compare" element={<ComparePage />} />
           <Route path="/gallery" element={<GalleryPage />} />
-          <Route path="/imgcheck" element={<ImgCheck />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -22,7 +22,7 @@ interface VehicleData {
 const VEHICLES: Record<string, VehicleData> = {
   'model-s': {
     label: 'Model S', tagline: 'Relentless Performance',
-    heroImg: `${BASE}grid-model-s.jpg`, heroPos: 'center 50%', light: true,
+    heroImg: `${BASE}dl-hero-model-s.jpg`, heroPos: 'center 45%', light: true,
     colors: [
       { name: 'Pearl White Multi-Coat', hex: '#f0f0ec', filter: 'none' },
       { name: 'Solid Black', hex: '#1a1a1a', filter: 'brightness(0.4) saturate(0.15)' },
@@ -50,7 +50,7 @@ const VEHICLES: Record<string, VehicleData> = {
   },
   'model-3': {
     label: 'Model 3', tagline: 'Order. Drive. Enjoy.',
-    heroImg: `${BASE}hero-model-3.jpg`, heroPos: 'center 50%', light: false,
+    heroImg: `${BASE}dl-hero-model-3.jpg`, heroPos: 'center 45%', light: true,
     colors: [
       { name: 'Pearl White Multi-Coat', hex: '#f0f0ec', filter: 'none' },
       { name: 'Stealth Grey', hex: '#4a4a4a', filter: 'brightness(0.55) saturate(0.12)' },
@@ -78,7 +78,7 @@ const VEHICLES: Record<string, VehicleData> = {
   },
   'model-y': {
     label: 'Model Y', tagline: "America's Best-Selling Vehicle",
-    heroImg: `${BASE}model-y-road.jpg`, heroPos: 'center 40%', light: true,
+    heroImg: `${BASE}dl-hero-model-y.jpg`, heroPos: 'center 45%', light: true,
     colors: [
       { name: 'Pearl White Multi-Coat', hex: '#f0f0ec', filter: 'none' },
       { name: 'Stealth Grey', hex: '#4a4a4a', filter: 'brightness(0.55) saturate(0.12)' },
@@ -106,7 +106,7 @@ const VEHICLES: Record<string, VehicleData> = {
   },
   'model-x': {
     label: 'Model X', tagline: 'Beyond Ludicrous',
-    heroImg: `${BASE}grid-model-x2.jpg`, heroPos: 'center 50%', light: true,
+    heroImg: `${BASE}dl-hero-model-x.jpg`, heroPos: 'center 45%', light: true,
     colors: [
       { name: 'Pearl White Multi-Coat', hex: '#f0f0ec', filter: 'none' },
       { name: 'Solid Black', hex: '#1a1a1a', filter: 'brightness(0.4) saturate(0.15)' },
@@ -134,7 +134,7 @@ const VEHICLES: Record<string, VehicleData> = {
   },
   'cybertruck': {
     label: 'Cybertruck', tagline: 'Built for Any Planet',
-    heroImg: `${BASE}truck-candidate.jpg`, heroPos: 'center 40%', light: true,
+    heroImg: `${BASE}Cybertruck-Main-Hero-Desktop.jpg`, heroPos: 'center 40%', light: true,
     colors: [
       { name: 'Stainless Steel', hex: '#d8d8d0', filter: 'none' },
       { name: 'Matte Black Wrap', hex: '#1a1a1a', filter: 'brightness(0.38) saturate(0.1)' },

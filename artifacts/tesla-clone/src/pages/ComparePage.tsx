@@ -23,7 +23,7 @@ interface VehicleCompareData {
 
 const VEHICLES: Record<string, VehicleCompareData> = {
   'model-s': {
-    label: 'Model S', category: 'Sedan', img: `${BASE}grid-model-s.jpg`,
+    label: 'Model S', category: 'Sedan', img: `${BASE}dl-hero-model-s.jpg`,
     startingPrice: 74990, priceDisplay: '$74,990',
     range: 405, accel: 3.1, topSpeed: 149, seating: 5, cargo: 28, power: 670, towing: 2700,
     tagline: 'Relentless Performance', accent: '#e8223c',
@@ -33,7 +33,7 @@ const VEHICLES: Record<string, VehicleCompareData> = {
     ],
   },
   'model-3': {
-    label: 'Model 3', category: 'Sedan', img: `${BASE}grid-model-3.jpg`,
+    label: 'Model 3', category: 'Sedan', img: `${BASE}dl-hero-model-3.jpg`,
     startingPrice: 40240, priceDisplay: '$40,240',
     range: 358, accel: 4.2, topSpeed: 145, seating: 5, cargo: 23, power: 283, towing: 2000,
     tagline: 'Order. Drive. Enjoy.', accent: '#3e6ae1',
@@ -44,7 +44,7 @@ const VEHICLES: Record<string, VehicleCompareData> = {
     ],
   },
   'model-y': {
-    label: 'Model Y', category: 'SUV', img: `${BASE}hero-model-y.jpg`,
+    label: 'Model Y', category: 'SUV', img: `${BASE}dl-hero-model-y.jpg`,
     startingPrice: 44990, priceDisplay: '$44,990',
     range: 357, accel: 3.5, topSpeed: 150, seating: 7, cargo: 76, power: 384, towing: 3500,
     tagline: "America's Best-Selling Vehicle", accent: '#27ae60',
@@ -55,7 +55,7 @@ const VEHICLES: Record<string, VehicleCompareData> = {
     ],
   },
   'model-x': {
-    label: 'Model X', category: 'SUV', img: `${BASE}model-x-candidate2.jpg`,
+    label: 'Model X', category: 'SUV', img: `${BASE}dl-hero-model-x.jpg`,
     startingPrice: 79990, priceDisplay: '$79,990',
     range: 335, accel: 2.5, topSpeed: 163, seating: 7, cargo: 88, power: 1020, towing: 5000,
     tagline: 'Beyond Ludicrous', accent: '#8e44ad',
@@ -65,7 +65,7 @@ const VEHICLES: Record<string, VehicleCompareData> = {
     ],
   },
   'cybertruck': {
-    label: 'Cybertruck', category: 'Truck', img: `${BASE}grid-cybertruck.jpg`,
+    label: 'Cybertruck', category: 'Truck', img: `${BASE}Cybertruck-Main-Hero-Desktop.jpg`,
     startingPrice: 79990, priceDisplay: '$79,990',
     range: 340, accel: 2.6, topSpeed: 130, seating: 5, cargo: 120, power: 845, towing: 11000,
     tagline: 'Built for Any Planet', accent: '#e67e22',
