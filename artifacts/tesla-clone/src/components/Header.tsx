@@ -24,8 +24,11 @@ const navItems = [
       ],
       links: [
         'Current Offers', 'Demo Drive', 'Trade-in', 'Pre-Owned',
-        'Trip Planner', 'Features', 'Help Me Choose', 'Compare', 'Safety',
+        'Trip Planner', 'Features', 'Help Me Choose', 'Compare →', 'Safety',
       ],
+      linkRoutes: {
+        'Compare →': '/compare',
+      },
     },
   },
   {
@@ -54,7 +57,10 @@ const navItems = [
     label: 'Discover',
     megaMenu: {
       featured: [],
-      links: ['Demo Drive', 'Insurance', 'Current Offers', 'Learn', 'Video Guides', 'Customer Stories', 'Events', 'Safety', 'Find Us', 'About', 'Careers'],
+      links: ['Demo Drive', 'Insurance', 'Current Offers', 'Learn', 'Video Guides', 'Customer Stories', 'Events', 'Safety', 'Find Us', 'About', 'Careers', 'Newsletter →'],
+      linkRoutes: {
+        'Newsletter →': '/newsletter',
+      },
     },
   },
   { label: 'Shop', href: '#' },
@@ -224,12 +230,27 @@ export default function Header() {
               </div>
             )}
             <div style={{ minWidth: '180px', display: 'flex', flexDirection: 'column', gap: '8px', paddingTop: '4px' }}>
-              {item.megaMenu.links.map((link) => (
-                <a key={link} href="#" style={{ fontSize: '13px', color: '#171a20', padding: '2px 0', textDecoration: 'none', transition: 'color 0.15s' }}
-                  onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = '#3e6ae1'}
-                  onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = '#171a20'}
-                >{link}</a>
-              ))}
+              {item.megaMenu.links.map((link) => {
+                const route = (item.megaMenu as { linkRoutes?: Record<string, string> }).linkRoutes?.[link];
+                if (route) {
+                  return (
+                    <button key={link} onClick={() => { navigate(route); setActiveMenu(null); }} style={{
+                      fontSize: '13px', color: '#3e6ae1', padding: '2px 0', background: 'none', border: 'none',
+                      cursor: 'pointer', textAlign: 'left', fontWeight: 600, fontFamily: 'inherit',
+                      transition: 'opacity 0.15s',
+                    }}
+                      onMouseEnter={e => (e.currentTarget as HTMLElement).style.opacity = '0.7'}
+                      onMouseLeave={e => (e.currentTarget as HTMLElement).style.opacity = '1'}
+                    >{link}</button>
+                  );
+                }
+                return (
+                  <a key={link} href="#" style={{ fontSize: '13px', color: '#171a20', padding: '2px 0', textDecoration: 'none', transition: 'color 0.15s' }}
+                    onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = '#3e6ae1'}
+                    onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = '#171a20'}
+                  >{link}</a>
+                );
+              })}
             </div>
           </div>
         );
