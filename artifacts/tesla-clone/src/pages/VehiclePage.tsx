@@ -16,7 +16,7 @@ interface VehicleData {
   label: string; tagline: string; heroImg: string; heroPos: string; light: boolean;
   colors: ColorOption[]; trims: TrimVariant[];
   specs: { label: string; value: string; unit: string }[];
-  features: { icon: string; title: string; desc: string }[];
+  features: { title: string; desc: string }[];
 }
 
 const VEHICLES: Record<string, VehicleData> = {
@@ -38,14 +38,14 @@ const VEHICLES: Record<string, VehicleData> = {
     specs: [
       { label: 'Peak Power', value: '670', unit: 'hp' },
       { label: 'Range', value: '405', unit: 'mi' },
-      { label: '0–60 mph', value: '3.1', unit: 's' },
+      { label: '0-60 mph', value: '3.1', unit: 's' },
       { label: 'Top Speed', value: '149', unit: 'mph' },
     ],
     features: [
-      { icon: '⚡', title: 'Ludicrous Mode', desc: '0–60 mph in 1.99s with Plaid powertrain' },
-      { icon: '🛡', title: 'Safety First', desc: '5-star safety rating in every category' },
-      { icon: '📱', title: 'Over-the-Air', desc: 'Updates delivered while you sleep' },
-      { icon: '🎮', title: 'Gaming', desc: 'Steam gaming platform built in' },
+      { title: 'Ludicrous Mode', desc: '0-60 mph in 1.99s with Plaid powertrain' },
+      { title: '5-Star Safety', desc: 'Top safety rating in every category' },
+      { title: 'Over-the-Air Updates', desc: 'Software updates delivered while you sleep' },
+      { title: 'Gaming & Entertainment', desc: 'Steam gaming platform built in' },
     ],
   },
   'model-3': {
@@ -66,19 +66,19 @@ const VEHICLES: Record<string, VehicleData> = {
     specs: [
       { label: 'Peak Power', value: '283', unit: 'hp' },
       { label: 'Range', value: '358', unit: 'mi' },
-      { label: '0–60 mph', value: '4.2', unit: 's' },
+      { label: '0-60 mph', value: '4.2', unit: 's' },
       { label: 'Top Speed', value: '145', unit: 'mph' },
     ],
     features: [
-      { icon: '🏁', title: 'Track-Ready', desc: 'Performance variant hits 162 mph' },
-      { icon: '🌍', title: 'Most Affordable', desc: 'Starting at $40,240 before incentives' },
-      { icon: '🔋', title: '358 mi Range', desc: 'Long Range AWD for the open road' },
-      { icon: '🤖', title: 'Full Self-Driving', desc: 'FSD (Supervised) capable' },
+      { title: 'Track-Ready Performance', desc: 'Performance variant reaches 162 mph' },
+      { title: 'Most Affordable', desc: 'Starting at $40,240 before incentives' },
+      { title: '358 mi Range', desc: 'Long Range AWD for the open road' },
+      { title: 'Full Self-Driving Capable', desc: 'FSD (Supervised) available' },
     ],
   },
   'model-y': {
     label: 'Model Y', tagline: "America's Best-Selling Vehicle",
-    heroImg: `${BASE}hero-model-y.jpg`, heroPos: 'center 45%', light: false,
+    heroImg: `${BASE}model-y-road.jpg`, heroPos: 'center 40%', light: true,
     colors: [
       { name: 'Pearl White Multi-Coat', hex: '#f0f0ec', filter: 'none' },
       { name: 'Stealth Grey', hex: '#4a4a4a', filter: 'brightness(0.55) saturate(0.12)' },
@@ -94,14 +94,14 @@ const VEHICLES: Record<string, VehicleData> = {
     specs: [
       { label: 'Seating', value: '7', unit: 'adults' },
       { label: 'Range', value: '357', unit: 'mi' },
-      { label: '0–60 mph', value: '3.5', unit: 's' },
+      { label: '0-60 mph', value: '3.5', unit: 's' },
       { label: 'Cargo', value: '76', unit: 'cu ft' },
     ],
     features: [
-      { icon: '👨‍👩‍👧‍👦', title: '7-Seat Option', desc: 'Third row seating for the whole family' },
-      { icon: '📦', title: '76 cu ft Cargo', desc: 'Best-in-class storage with rear seats down' },
-      { icon: '🛡', title: 'Top Safety', desc: 'NHTSA 5-star safety rating' },
-      { icon: '📍', title: 'AWD Standard', desc: 'Dual motor all-wheel drive available' },
+      { title: '7-Seat Option', desc: 'Third row seating for the whole family' },
+      { title: '76 cu ft Cargo', desc: 'Best-in-class storage with rear seats down' },
+      { title: 'Top Safety Rating', desc: 'NHTSA 5-star rating in all categories' },
+      { title: 'All-Wheel Drive', desc: 'Dual motor AWD available on all trims' },
     ],
   },
   'model-x': {
@@ -122,19 +122,19 @@ const VEHICLES: Record<string, VehicleData> = {
     specs: [
       { label: 'Seating', value: '7', unit: 'adults' },
       { label: 'Range', value: '335', unit: 'mi' },
-      { label: '0–60 mph', value: '2.5', unit: 's' },
+      { label: '0-60 mph', value: '2.5', unit: 's' },
       { label: 'Top Speed', value: '163', unit: 'mph' },
     ],
     features: [
-      { icon: '🦋', title: 'Falcon Wing Doors', desc: 'Open in tight spaces, rain-free loading' },
-      { icon: '🎬', title: '17" Screen', desc: 'Cinematic display for rear passengers' },
-      { icon: '⚡', title: '1,020 hp Plaid', desc: 'Tri-motor absolute performance' },
-      { icon: '🏔', title: 'All-Road Capable', desc: 'Air suspension adapts to any terrain' },
+      { title: 'Falcon Wing Doors', desc: 'Open in tight spaces, rain-free rear loading' },
+      { title: '17-inch Rear Screen', desc: 'Cinematic display for rear passengers' },
+      { title: '1,020 hp Plaid', desc: 'Tri-motor absolute performance' },
+      { title: 'Air Suspension', desc: 'Adaptive suspension for any terrain' },
     ],
   },
   'cybertruck': {
     label: 'Cybertruck', tagline: 'Built for Any Planet',
-    heroImg: `${BASE}grid-cybertruck.jpg`, heroPos: 'center 40%', light: true,
+    heroImg: `${BASE}truck-candidate.jpg`, heroPos: 'center 40%', light: true,
     colors: [
       { name: 'Stainless Steel', hex: '#d8d8d0', filter: 'none' },
       { name: 'Matte Black Wrap', hex: '#1a1a1a', filter: 'brightness(0.38) saturate(0.1)' },
@@ -147,14 +147,14 @@ const VEHICLES: Record<string, VehicleData> = {
     specs: [
       { label: 'Payload', value: '2,200', unit: 'lbs' },
       { label: 'Range', value: '340', unit: 'mi' },
-      { label: '0–60 mph', value: '2.6', unit: 's' },
+      { label: '0-60 mph', value: '2.6', unit: 's' },
       { label: 'Towing', value: '11,000', unit: 'lbs' },
     ],
     features: [
-      { icon: '🔩', title: 'Exoskeleton', desc: 'Ultra-hard 30X cold-rolled stainless steel' },
-      { icon: '🏔', title: '11,000 lb Tow', desc: 'Haul nearly any load on any terrain' },
-      { icon: '⚡', title: 'Cyberbeast Mode', desc: '0–60 in 2.6s with all three motors' },
-      { icon: '🔌', title: 'Power Anywhere', desc: '11.5 kW of exports to power any tool' },
+      { title: 'Stainless Steel Exoskeleton', desc: 'Ultra-hard 30X cold-rolled stainless steel body' },
+      { title: '11,000 lb Towing', desc: 'Haul nearly any load on any terrain' },
+      { title: 'Cyberbeast Mode', desc: '0-60 in 2.6s with all three motors' },
+      { title: 'On-Board Power Export', desc: '11.5 kW to power any tool on any job site' },
     ],
   },
 };
@@ -174,7 +174,6 @@ function HeroSection({ img, pos, filter, light, label, tagline }: { img: string;
         <p style={{ fontSize: '13px', fontWeight: 500, letterSpacing: '0.14em', color: 'rgba(255,255,255,0.7)', textTransform: 'uppercase', marginBottom: '12px' }}>{tagline}</p>
         <h1 style={{ fontSize: 'clamp(48px,8vw,100px)', fontWeight: 600, color: '#fff', letterSpacing: '-2px', lineHeight: 1, textShadow: '0 2px 16px rgba(0,0,0,.35)' }}>{label}</h1>
       </div>
-      {/* Scroll hint */}
       <div style={{ position: 'absolute', bottom: '32px', left: '50%', transform: 'translateX(-50%)', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px', opacity: vis ? 0.6 : 0, transition: 'opacity 1.2s ease 0.5s' }}>
         <span style={{ fontSize: '11px', letterSpacing: '0.1em', color: '#fff', textTransform: 'uppercase' }}>Configure</span>
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round"><polyline points="6,9 12,15 18,9"/></svg>
@@ -192,7 +191,6 @@ export default function VehiclePage() {
   const [colorIdx, setColorIdx] = useState(0);
   const [trimIdx, setTrimIdx] = useState(0);
   const [hoveredColor, setHoveredColor] = useState<number | null>(null);
-  const [trimScroll, setTrimScroll] = useState(0);
   const [vis, setVis] = useState(false);
   const specRef = useRef<HTMLDivElement>(null);
   const trimRef = useRef<HTMLDivElement>(null);
@@ -209,7 +207,7 @@ export default function VehiclePage() {
     return (
       <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
         <h1 style={{ fontSize: '32px', fontWeight: 600, marginBottom: '16px' }}>Vehicle not found</h1>
-        <button onClick={() => navigate('/')} style={{ color: '#3e6ae1', background: 'none', border: 'none', cursor: 'pointer', fontSize: '16px', fontFamily: 'inherit' }}>← Back to Home</button>
+        <button onClick={() => navigate('/')} style={{ color: '#3e6ae1', background: 'none', border: 'none', cursor: 'pointer', fontSize: '16px', fontFamily: 'inherit' }}>Back to Home</button>
       </div>
     );
   }
@@ -218,23 +216,18 @@ export default function VehiclePage() {
   const activeTrim = vehicle.trims[trimIdx];
 
   function scrollTrims(dir: number) {
-    const el = trimRef.current;
-    if (!el) return;
-    el.scrollBy({ left: dir * 220, behavior: 'smooth' });
+    trimRef.current?.scrollBy({ left: dir * 220, behavior: 'smooth' });
   }
 
   return (
     <div style={{ fontFamily: 'Inter, -apple-system, sans-serif', background: '#f8f9fa' }}>
-      <style>{`
-        @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
-        .trim-scroll::-webkit-scrollbar { display:none }
-      `}</style>
+      <style>{`.trim-scroll::-webkit-scrollbar{display:none}`}</style>
 
       <HeroSection img={vehicle.heroImg} pos={vehicle.heroPos} filter={activeColor.filter} light={vehicle.light} label={vehicle.label} tagline={vehicle.tagline} />
 
       {/* Specs bar */}
-      <div ref={specRef} style={{ background: '#fff', borderBottom: '1px solid #eee' }}>
-        <div style={{ maxWidth: '1000px', margin: '0 auto', display: 'grid', gridTemplateColumns: `repeat(${vehicle.specs.length},1fr)`, gap: '1px', background: '#eee' }}>
+      <div style={{ background: '#fff', borderBottom: '1px solid #eee' }}>
+        <div ref={specRef} style={{ maxWidth: '1000px', margin: '0 auto', display: 'grid', gridTemplateColumns: `repeat(${vehicle.specs.length},1fr)`, gap: '1px', background: '#eee' }}>
           {vehicle.specs.map((s, i) => (
             <div key={s.label} style={{ background: '#fff', padding: isMobile ? '20px 12px' : '28px 20px', textAlign: 'center', opacity: vis ? 1 : 0, transform: vis ? 'translateY(0)' : 'translateY(16px)', transition: `opacity .6s ease ${i * 0.08}s, transform .6s ease ${i * 0.08}s` }}>
               <div style={{ fontSize: isMobile ? '22px' : '30px', fontWeight: 700, color: '#171a20', lineHeight: 1 }}>{s.value}</div>
@@ -247,7 +240,7 @@ export default function VehiclePage() {
 
       <div style={{ maxWidth: '960px', margin: '0 auto', padding: isMobile ? '36px 16px 100px' : '52px 24px 100px' }}>
 
-        {/* Trim carousel */}
+        {/* Trim selector */}
         <h2 style={{ fontSize: isMobile ? '18px' : '22px', fontWeight: 700, color: '#171a20', marginBottom: '6px' }}>Choose Your Trim</h2>
         <p style={{ fontSize: '13px', color: '#9a9a9a', marginBottom: '18px' }}>Swipe to see all options</p>
         <div style={{ position: 'relative', marginBottom: '44px' }}>
@@ -265,15 +258,7 @@ export default function VehiclePage() {
             {vehicle.trims.map((trim, ti) => {
               const sel = ti === trimIdx;
               return (
-                <button key={trim.name} onClick={() => setTrimIdx(ti)} style={{
-                  flexShrink: 0, scrollSnapAlign: 'start',
-                  minWidth: isMobile ? 'calc(88vw - 32px)' : '280px',
-                  padding: '22px', borderRadius: '12px', textAlign: 'left',
-                  border: `2px solid ${sel ? '#171a20' : '#e0e0e0'}`,
-                  background: sel ? '#fff' : '#fafafa', cursor: 'pointer', fontFamily: 'inherit',
-                  boxShadow: sel ? '0 4px 20px rgba(0,0,0,.1)' : 'none',
-                  transition: 'border-color .2s, box-shadow .2s',
-                }}>
+                <button key={trim.name} onClick={() => setTrimIdx(ti)} style={{ flexShrink: 0, scrollSnapAlign: 'start', minWidth: isMobile ? 'calc(88vw - 32px)' : '280px', padding: '22px', borderRadius: '12px', textAlign: 'left', border: `2px solid ${sel ? '#171a20' : '#e0e0e0'}`, background: sel ? '#fff' : '#fafafa', cursor: 'pointer', fontFamily: 'inherit', boxShadow: sel ? '0 4px 20px rgba(0,0,0,.1)' : 'none', transition: 'border-color .2s, box-shadow .2s' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '14px' }}>
                     <div style={{ fontSize: '16px', fontWeight: 700, color: '#171a20' }}>{trim.name}</div>
                     {trim.awd && <span style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '0.06em', color: '#fff', background: '#171a20', padding: '3px 8px', borderRadius: '4px' }}>AWD</span>}
@@ -303,7 +288,7 @@ export default function VehiclePage() {
 
         {/* Color selector */}
         <h2 style={{ fontSize: isMobile ? '18px' : '22px', fontWeight: 700, color: '#171a20', marginBottom: '4px' }}>Exterior Color</h2>
-        <p style={{ fontSize: '14px', color: '#5c5e62', marginBottom: '18px', minHeight: '20px', transition: 'all .2s' }}>{activeColor.name}</p>
+        <p style={{ fontSize: '14px', color: '#5c5e62', marginBottom: '18px', minHeight: '20px' }}>{activeColor.name}</p>
         <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginBottom: '52px' }}>
           {vehicle.colors.map((col, ci) => {
             const active = ci === colorIdx;
@@ -312,14 +297,7 @@ export default function VehiclePage() {
                 onClick={() => setColorIdx(ci)}
                 onMouseEnter={() => setHoveredColor(ci)}
                 onMouseLeave={() => setHoveredColor(null)}
-                style={{
-                  width: active ? '46px' : '38px', height: active ? '46px' : '38px', borderRadius: '50%',
-                  background: col.hex, border: `3px solid ${active ? '#171a20' : 'transparent'}`,
-                  outline: active ? '2px solid rgba(23,26,32,.2)' : '2px solid #e0e0e0',
-                  outlineOffset: '2px', cursor: 'pointer', transition: 'all .2s',
-                  boxShadow: '0 2px 6px rgba(0,0,0,.18)',
-                  transform: hoveredColor === ci && !active ? 'scale(1.08)' : 'scale(1)',
-                }}
+                style={{ width: active ? '46px' : '38px', height: active ? '46px' : '38px', borderRadius: '50%', background: col.hex, border: `3px solid ${active ? '#171a20' : 'transparent'}`, outline: active ? '2px solid rgba(23,26,32,.2)' : '2px solid #e0e0e0', outlineOffset: '2px', cursor: 'pointer', transition: 'all .2s', boxShadow: '0 2px 6px rgba(0,0,0,.18)', transform: hoveredColor === ci && !active ? 'scale(1.08)' : 'scale(1)' }}
               />
             );
           })}
@@ -330,42 +308,32 @@ export default function VehiclePage() {
         <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(4,1fr)', gap: '12px', marginBottom: '52px' }}>
           {vehicle.features.map((f, fi) => (
             <div key={f.title} style={{ background: '#fff', borderRadius: '12px', padding: '20px', border: '1px solid #eee', opacity: vis ? 1 : 0, transform: vis ? 'translateY(0)' : 'translateY(16px)', transition: `opacity .6s ease ${fi * 0.07}s, transform .6s ease ${fi * 0.07}s` }}>
-              <div style={{ fontSize: '28px', marginBottom: '10px' }}>{f.icon}</div>
+              <div style={{ width: '32px', height: '32px', background: '#f4f4f4', borderRadius: '8px', marginBottom: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#171a20" strokeWidth="2" strokeLinecap="round"><polyline points="20,6 9,17 4,12"/></svg>
+              </div>
               <div style={{ fontSize: '14px', fontWeight: 700, color: '#171a20', marginBottom: '5px' }}>{f.title}</div>
               <div style={{ fontSize: '12px', color: '#9a9a9a', lineHeight: 1.55 }}>{f.desc}</div>
             </div>
           ))}
         </div>
 
-        {/* CTA buttons */}
+        {/* CTAs */}
         <div style={{ display: 'flex', gap: '12px', flexWrap: isMobile ? 'wrap' : 'nowrap' }}>
-          <button onClick={() => navigate(`/contact?subject=order&vehicle=${slug}`)} style={{
-            flex: 1, minWidth: isMobile ? '100%' : undefined, padding: '17px', borderRadius: '8px', fontSize: '15px', fontWeight: 700,
-            background: '#171a20', color: '#fff', cursor: 'pointer', border: 'none', fontFamily: 'inherit',
-            transition: 'background .2s, transform .15s',
-          }}
+          <button onClick={() => navigate(`/contact?subject=order&vehicle=${slug}`)} style={{ flex: 1, minWidth: isMobile ? '100%' : undefined, padding: '17px', borderRadius: '8px', fontSize: '15px', fontWeight: 700, background: '#171a20', color: '#fff', cursor: 'pointer', border: 'none', fontFamily: 'inherit', transition: 'background .2s, transform .15s' }}
             onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = '#2a2d35'; (e.currentTarget as HTMLElement).style.transform = 'scale(1.01)'; }}
             onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = '#171a20'; (e.currentTarget as HTMLElement).style.transform = 'scale(1)'; }}
           >Order Now — {activeTrim.price}</button>
-          <button onClick={() => navigate(`/contact?subject=demo&vehicle=${slug}`)} style={{
-            flex: 1, minWidth: isMobile ? '100%' : undefined, padding: '17px', borderRadius: '8px', fontSize: '15px', fontWeight: 700,
-            background: '#fff', color: '#171a20', cursor: 'pointer', border: '2px solid #e0e0e0', fontFamily: 'inherit',
-            transition: 'background .2s, border-color .2s, transform .15s',
-          }}
-            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = '#f4f4f4'; (e.currentTarget as HTMLElement).style.borderColor = '#c0c0c0'; (e.currentTarget as HTMLElement).style.transform = 'scale(1.01)'; }}
-            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = '#fff'; (e.currentTarget as HTMLElement).style.borderColor = '#e0e0e0'; (e.currentTarget as HTMLElement).style.transform = 'scale(1)'; }}
+          <button onClick={() => navigate(`/contact?subject=demo&vehicle=${slug}`)} style={{ flex: 1, minWidth: isMobile ? '100%' : undefined, padding: '17px', borderRadius: '8px', fontSize: '15px', fontWeight: 700, background: '#fff', color: '#171a20', cursor: 'pointer', border: '2px solid #e0e0e0', fontFamily: 'inherit', transition: 'background .2s, border-color .2s, transform .15s' }}
+            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = '#f4f4f4'; (e.currentTarget as HTMLElement).style.transform = 'scale(1.01)'; }}
+            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = '#fff'; (e.currentTarget as HTMLElement).style.transform = 'scale(1)'; }}
           >Schedule a Demo Drive</button>
-          <button onClick={() => navigate('/compare')} style={{
-            padding: '17px 28px', borderRadius: '8px', fontSize: '15px', fontWeight: 600,
-            background: '#f4f4f4', color: '#5c5e62', cursor: 'pointer', border: '1.5px solid #e0e0e0', fontFamily: 'inherit',
-            transition: 'background .2s',
-          }}
+          <button onClick={() => navigate('/compare')} style={{ padding: '17px 28px', borderRadius: '8px', fontSize: '15px', fontWeight: 600, background: '#f4f4f4', color: '#5c5e62', cursor: 'pointer', border: '1.5px solid #e0e0e0', fontFamily: 'inherit', transition: 'background .2s' }}
             onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = '#eee'}
             onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = '#f4f4f4'}
           >Compare</button>
         </div>
 
-        <button onClick={() => navigate('/')} style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', marginTop: '28px', fontSize: '13px', color: '#5c5e62', background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'inherit', transition: 'color .15s' }}
+        <button onClick={() => navigate('/')} style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', marginTop: '28px', fontSize: '13px', color: '#5c5e62', background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'inherit' }}
           onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = '#171a20'}
           onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = '#5c5e62'}
         >

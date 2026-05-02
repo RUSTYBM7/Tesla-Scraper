@@ -3,18 +3,17 @@ import { useNavigate } from 'react-router-dom';
 export default function Footer() {
   const navigate = useNavigate();
   const links = [
-    { label: 'Tesla © 2026', action: () => navigate('/') },
+    { label: 'Teslaofficial.site 2026', action: () => navigate('/') },
     { label: 'Privacy & Legal', action: () => navigate('/contact?subject=general') },
     { label: 'Vehicle Recalls', action: () => navigate('/contact?subject=service') },
     { label: 'Contact', action: () => navigate('/contact') },
-    { label: 'News', action: () => navigate('/newsletter') },
-    { label: 'Get Updates', action: () => navigate('/newsletter') },
+    { label: 'Gallery', action: () => navigate('/gallery') },
     { label: 'Compare Models', action: () => navigate('/compare') },
   ];
   return (
     <footer style={{ background: '#fff', padding: '16px 48px 90px', borderTop: '1px solid #e5e5e5', display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: '4px 20px' }}>
       {links.map(link => (
-        <button key={link.label} onClick={link.action} style={{ fontSize: '12px', color: '#5c5e62', transition: 'color 0.15s', padding: '4px 2px', textDecoration: 'none', background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'inherit' }}
+        <button key={link.label} onClick={link.action} style={{ fontSize: '12px', color: '#5c5e62', transition: 'color 0.15s', padding: '4px 2px', background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'inherit' }}
           onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = '#171a20'}
           onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = '#5c5e62'}
         >{link.label}</button>

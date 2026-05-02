@@ -1,4 +1,3 @@
-import HeroSlider from '../components/HeroSlider';
 import VehicleGrid from '../components/VehicleGrid';
 import EnergySection from '../components/EnergySection';
 import ChargingSection from '../components/ChargingSection';
@@ -9,7 +8,6 @@ import Footer from '../components/Footer';
 export default function HomePage() {
   return (
     <main>
-      <HeroSlider />
       <VehicleGrid />
       <EnergySection />
       <ChargingSection />

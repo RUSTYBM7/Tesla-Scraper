@@ -84,18 +84,18 @@ interface SpecRow {
   keyA: keyof VehicleCompareData;
   higherIsBetter: boolean;
   format?: (v: number) => string;
-  icon: string;
+  iconPath: string;
 }
 
 const SPEC_ROWS: SpecRow[] = [
-  { label: 'Starting Price', unit: 'USD', keyA: 'startingPrice', higherIsBetter: false, format: (v) => `$${v.toLocaleString()}`, icon: '💲' },
-  { label: 'Range', unit: 'mi', keyA: 'range', higherIsBetter: true, format: (v) => `${v}`, icon: '⚡' },
-  { label: '0–60 mph', unit: 'sec', keyA: 'accel', higherIsBetter: false, format: (v) => `${v}`, icon: '🏎' },
-  { label: 'Top Speed', unit: 'mph', keyA: 'topSpeed', higherIsBetter: true, format: (v) => `${v}`, icon: '🚀' },
-  { label: 'Seating', unit: 'adults', keyA: 'seating', higherIsBetter: true, format: (v) => `${v}`, icon: '👥' },
-  { label: 'Cargo Volume', unit: 'cu ft', keyA: 'cargo', higherIsBetter: true, format: (v) => `${v}`, icon: '📦' },
-  { label: 'Peak Power', unit: 'hp', keyA: 'power', higherIsBetter: true, format: (v) => `${v}`, icon: '⚙️' },
-  { label: 'Max Towing', unit: 'lbs', keyA: 'towing', higherIsBetter: true, format: (v) => `${v.toLocaleString()}`, icon: '🔗' },
+  { label: 'Starting Price', unit: 'USD', keyA: 'startingPrice', higherIsBetter: false, format: (v) => `$${v.toLocaleString()}`, iconPath: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-1.59 0-.83-.44-1.61-2.67-2.14-2.48-.6-4.18-1.62-4.18-3.67 0-1.72 1.39-2.84 3.11-3.21V4h2.67v1.95c1.86.45 2.79 1.86 2.85 3.39H14.3c-.05-1.11-.64-1.87-2.22-1.87-1.5 0-2.4.68-2.4 1.64 0 .84.65 1.39 2.67 1.91s4.18 1.39 4.18 3.91c-.01 1.83-1.38 2.83-3.12 3.16z' },
+  { label: 'Range', unit: 'mi', keyA: 'range', higherIsBetter: true, format: (v) => `${v}`, iconPath: 'M7 4v2h3v2H7l-2 2v3H3v3h2v3h2v-3h8v3h2v-3h2v-3h-2v-3l-2-2h-3V6h3V4H7zm0 8h10v3H7v-3z' },
+  { label: '0–60 mph', unit: 'sec', keyA: 'accel', higherIsBetter: false, format: (v) => `${v}`, iconPath: 'M20.38 8.57l-1.23 1.85a8 8 0 01-.22 7.58H5.07A8 8 0 0115.58 6.85l1.85-1.23A10 10 0 003.35 19a2 2 0 001.72 1h13.85a2 2 0 001.74-1 10 10 0 00-.27-10.44zm-9.79 6.84a2 2 0 003.89-.67 1.9 1.9 0 00-.18-.47l1.5-6.12-5.61 4.34c-.19.16-.34.34-.46.54a2 2 0 00.86 2.38z' },
+  { label: 'Top Speed', unit: 'mph', keyA: 'topSpeed', higherIsBetter: true, format: (v) => `${v}`, iconPath: 'M4 14.899A7 7 0 1115.71 8h1.79a4.5 4.5 0 010 9H5a5 5 0 01-1-9.9M12 12l-3-3m3 3l3-3' },
+  { label: 'Seating', unit: 'adults', keyA: 'seating', higherIsBetter: true, format: (v) => `${v}`, iconPath: 'M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z' },
+  { label: 'Cargo Volume', unit: 'cu ft', keyA: 'cargo', higherIsBetter: true, format: (v) => `${v}`, iconPath: 'M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2zm-7-3a1 1 0 011 1v1h-4V5a1 1 0 011-1h2zM6 3h2a1 1 0 011 1v1H5V4a1 1 0 011-1zM3 11h18v2H3v-2zm0 4h18v4H3v-4z' },
+  { label: 'Peak Power', unit: 'hp', keyA: 'power', higherIsBetter: true, format: (v) => `${v}`, iconPath: 'M13 2L3 14h9l-1 8 10-12h-9l1-8z' },
+  { label: 'Max Towing', unit: 'lbs', keyA: 'towing', higherIsBetter: true, format: (v) => `${v.toLocaleString()}`, iconPath: 'M1 3h14v13H1V3zm16 2h4l2 3v5h-2v1.5a1.5 1.5 0 01-3 0V13h-1V5zM4 16a2 2 0 100 4 2 2 0 000-4zm6 0a2 2 0 100 4 2 2 0 000-4z' },
 ];
 
 function VehicleSelector({ value, onChange, exclude }: { value: string; onChange: (s: string) => void; exclude: string }) {
@@ -320,7 +320,7 @@ export default function ComparePage() {
             }}>
               {/* Label */}
               <div className="compare-table-cell" style={{ padding: '20px 24px', display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <span style={{ fontSize: '18px', lineHeight: 1 }}>{row.icon}</span>
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="rgba(255,255,255,0.5)" style={{ flexShrink: 0 }}><path d={row.iconPath}/></svg>
                 <div>
                   <div style={{ fontSize: '14px', fontWeight: 600, color: 'rgba(255,255,255,0.85)' }}>{row.label}</div>
                   <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.3)', marginTop: '2px' }}>{row.unit}</div>
@@ -338,8 +338,8 @@ export default function ComparePage() {
                   {fmt(lv)}
                 </span>
                 {w === 'left' && (
-                  <span style={{ fontSize: '10px', fontWeight: 700, color: left.accent, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-                    ✓ Better
+                  <span style={{ fontSize: '10px', fontWeight: 700, color: left.accent, letterSpacing: '0.1em', textTransform: 'uppercase', display: 'flex', alignItems: 'center', gap: '3px' }}>
+                    <svg viewBox="0 0 12 12" width="10" height="10" fill={left.accent}><path d="M1 6l3.5 3.5L11 2"/></svg> Better
                   </span>
                 )}
               </div>
@@ -355,8 +355,8 @@ export default function ComparePage() {
                   {fmt(rv)}
                 </span>
                 {w === 'right' && (
-                  <span style={{ fontSize: '10px', fontWeight: 700, color: right.accent, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-                    ✓ Better
+                  <span style={{ fontSize: '10px', fontWeight: 700, color: right.accent, letterSpacing: '0.1em', textTransform: 'uppercase', display: 'flex', alignItems: 'center', gap: '3px' }}>
+                    <svg viewBox="0 0 12 12" width="10" height="10" fill={right.accent}><path d="M1 6l3.5 3.5L11 2"/></svg> Better
                   </span>
                 )}
               </div>
