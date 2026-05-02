@@ -1,8 +1,8 @@
 const BASE = import.meta.env.BASE_URL;
 const imgs = [
-  'dl-hero-model-s.jpg','dl-hero-model-3.jpg','dl-hero-model-y.jpg','dl-hero-model-x.jpg',
-  'real-model-3.jpg','real-cybertruck.jpg',
-  'ct5.jpg','ct6.jpg',
+  'Cybertruck-Main-Hero-Desktop.jpg',
+  'dl-hero-model-s.jpg','dl-hero-model-y.jpg','dl-hero-model-x.jpg','dl-hero-model-3.jpg',
+  'real-model-3.jpg',
 ];
 export default function ImgCheck() {
   return (
