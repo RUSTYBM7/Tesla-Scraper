@@ -23,7 +23,7 @@ interface VehicleCompareData {
 
 const VEHICLES: Record<string, VehicleCompareData> = {
   'model-s': {
-    label: 'Model S', category: 'Sedan', img: `${BASE}hero-model-3.jpg`,
+    label: 'Model S', category: 'Sedan', img: `${BASE}grid-model-s.jpg`,
     startingPrice: 74990, priceDisplay: '$74,990',
     range: 405, accel: 3.1, topSpeed: 149, seating: 5, cargo: 28, power: 670, towing: 2700,
     tagline: 'Relentless Performance', accent: '#e8223c',
@@ -33,7 +33,7 @@ const VEHICLES: Record<string, VehicleCompareData> = {
     ],
   },
   'model-3': {
-    label: 'Model 3', category: 'Sedan', img: `${BASE}hero-model-3.jpg`,
+    label: 'Model 3', category: 'Sedan', img: `${BASE}grid-model-3.jpg`,
     startingPrice: 40240, priceDisplay: '$40,240',
     range: 358, accel: 4.2, topSpeed: 145, seating: 5, cargo: 23, power: 283, towing: 2000,
     tagline: 'Order. Drive. Enjoy.', accent: '#3e6ae1',
@@ -65,7 +65,7 @@ const VEHICLES: Record<string, VehicleCompareData> = {
     ],
   },
   'cybertruck': {
-    label: 'Cybertruck', category: 'Truck', img: `${BASE}hero-highway.jpg`,
+    label: 'Cybertruck', category: 'Truck', img: `${BASE}grid-cybertruck.jpg`,
     startingPrice: 79990, priceDisplay: '$79,990',
     range: 340, accel: 2.6, topSpeed: 130, seating: 5, cargo: 120, power: 845, towing: 11000,
     tagline: 'Built for Any Planet', accent: '#e67e22',
@@ -399,12 +399,13 @@ export default function ComparePage() {
           opacity: vis ? 1 : 0, transition: 'opacity 0.5s 0.75s ease',
         }}>
           {[{ v: left, slug: leftSlug }, { v: right, slug: rightSlug }].map(({ v, slug }) => (
-            <button key={slug} onClick={() => navigate(`/vehicles/${slug}`)} style={{
+            <button key={slug} onClick={() => navigate(`/contact?subject=order&vehicle=${slug}`)} style={{
               padding: '14px 36px', borderRadius: '28px',
               background: v.accent, border: 'none', cursor: 'pointer',
               fontSize: '15px', fontWeight: 700, color: '#fff',
               transition: 'opacity 0.18s, transform 0.18s',
               boxShadow: `0 8px 24px ${v.accent}44`,
+              fontFamily: 'inherit',
             }}
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.opacity = '0.88'; (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)'; }}
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.opacity = '1'; (e.currentTarget as HTMLElement).style.transform = 'translateY(0)'; }}

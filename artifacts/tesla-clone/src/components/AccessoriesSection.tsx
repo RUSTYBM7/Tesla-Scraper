@@ -5,19 +5,15 @@ const BASE = import.meta.env.BASE_URL;
 
 function useIsMobile() {
   const [m, setM] = useState(() => window.innerWidth < 640);
-  useEffect(() => {
-    const h = () => setM(window.innerWidth < 640);
-    window.addEventListener('resize', h);
-    return () => window.removeEventListener('resize', h);
-  }, []);
+  useEffect(() => { const h = () => setM(window.innerWidth < 640); window.addEventListener('resize', h); return () => window.removeEventListener('resize', h); }, []);
   return m;
 }
 
 const cats = [
-  { label: 'Charging', desc: 'Wall Connectors, Adapters & More', img: `${BASE}slide-charging.jpg`, imgPos: 'center center', route: '/newsletter' },
-  { label: 'Vehicle Accessories', desc: 'Floor Mats, Covers & Add-ons', img: `${BASE}grid-model-3.jpg`, imgPos: 'center 45%', route: '/newsletter' },
-  { label: 'Apparel', desc: 'Hats, Jackets & Lifestyle', img: `${BASE}city-night.jpg`, imgPos: 'center center', route: '/newsletter' },
-  { label: 'Lifestyle', desc: 'Luggage, Gear & Collectibles', img: `${BASE}tesla-test1.jpg`, imgPos: 'center center', route: '/newsletter' },
+  { label: 'Charging', desc: 'Wall Connectors, Adapters & More', img: `${BASE}slide-charging.jpg`, imgPos: 'center center', route: '/contact?subject=general' },
+  { label: 'Vehicle Accessories', desc: 'Floor Mats, Covers & Add-ons', img: `${BASE}grid-model-3.jpg`, imgPos: 'center 45%', route: '/contact?subject=general' },
+  { label: 'Apparel', desc: 'Hats, Jackets & Lifestyle', img: `${BASE}city-night.jpg`, imgPos: 'center center', route: '/contact?subject=general' },
+  { label: 'Lifestyle', desc: 'Luggage, Gear & Collectibles', img: `${BASE}tesla-test1.jpg`, imgPos: 'center center', route: '/contact?subject=general' },
 ];
 
 export default function AccessoriesSection() {
@@ -32,23 +28,13 @@ export default function AccessoriesSection() {
     return () => obs.disconnect();
   }, []);
 
-  const cols = isMobile ? 2 : 4;
-
   return (
-    <section ref={ref} style={{ background: '#fff', paddingBottom: '0' }}>
-      <div style={{
-        padding: isMobile ? '40px 20px 20px' : '52px 48px 28px',
-        opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(16px)',
-        transition: 'opacity .6s ease, transform .6s ease',
-      }}>
+    <section ref={ref} style={{ background: '#fff' }}>
+      <div style={{ padding: isMobile ? '40px 20px 20px' : '52px 48px 28px', opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(16px)', transition: 'opacity .6s ease, transform .6s ease' }}>
         <h2 style={{ fontSize: isMobile ? '20px' : '22px', fontWeight: 600, color: '#171a20', marginBottom: '4px' }}>Shop</h2>
         <p style={{ fontSize: '14px', color: '#5c5e62' }}>Accessories designed for your Tesla</p>
       </div>
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: `repeat(${cols}, 1fr)`,
-        gap: '4px', padding: '0 4px 4px',
-      }}>
+      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(4,1fr)', gap: '4px', padding: '0 4px 4px' }}>
         {cats.map((cat, i) => (
           <button key={cat.label} onClick={() => navigate(cat.route)} style={{
             position: 'relative', display: 'block', height: isMobile ? '220px' : '340px',
@@ -56,11 +42,7 @@ export default function AccessoriesSection() {
             opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(24px)',
             transition: `opacity .6s ease ${i * 0.09}s, transform .6s ease ${i * 0.09}s`,
           }}>
-            <div style={{
-              position: 'absolute', inset: 0,
-              backgroundImage: `url(${cat.img})`, backgroundSize: 'cover', backgroundPosition: cat.imgPos,
-              transition: 'transform .55s cubic-bezier(.4,0,.2,1)',
-            }}
+            <div style={{ position: 'absolute', inset: 0, backgroundImage: `url(${cat.img})`, backgroundSize: 'cover', backgroundPosition: cat.imgPos, transition: 'transform .55s cubic-bezier(.4,0,.2,1)' }}
               onMouseEnter={e => (e.currentTarget as HTMLElement).style.transform = 'scale(1.07)'}
               onMouseLeave={e => (e.currentTarget as HTMLElement).style.transform = 'scale(1)'}
             />

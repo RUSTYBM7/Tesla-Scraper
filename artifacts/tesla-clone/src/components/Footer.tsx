@@ -1,38 +1,23 @@
-const footerLinks = [
-  { label: 'Tesla © 2025', href: '#' },
-  { label: 'Privacy & Legal', href: '#' },
-  { label: 'Vehicle Recalls', href: '#' },
-  { label: 'Contact', href: '#' },
-  { label: 'News', href: '#' },
-  { label: 'Get Updates', href: '#' },
-  { label: 'Locations', href: '#' },
-];
+import { useNavigate } from 'react-router-dom';
 
 export default function Footer() {
+  const navigate = useNavigate();
+  const links = [
+    { label: 'Tesla © 2026', action: () => navigate('/') },
+    { label: 'Privacy & Legal', action: () => navigate('/contact?subject=general') },
+    { label: 'Vehicle Recalls', action: () => navigate('/contact?subject=service') },
+    { label: 'Contact', action: () => navigate('/contact') },
+    { label: 'News', action: () => navigate('/newsletter') },
+    { label: 'Get Updates', action: () => navigate('/newsletter') },
+    { label: 'Compare Models', action: () => navigate('/compare') },
+  ];
   return (
-    <footer style={{
-      background: '#fff',
-      padding: '16px 48px 90px',
-      borderTop: '1px solid #e5e5e5',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      flexWrap: 'wrap',
-      gap: '4px 20px',
-    }}>
-      {footerLinks.map((link) => (
-        <a key={link.label} href={link.href} style={{
-          fontSize: '12px',
-          color: '#5c5e62',
-          transition: 'color 0.15s',
-          padding: '4px 2px',
-          textDecoration: 'none',
-        }}
-          onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = '#171a20'}
-          onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = '#5c5e62'}
-        >
-          {link.label}
-        </a>
+    <footer style={{ background: '#fff', padding: '16px 48px 90px', borderTop: '1px solid #e5e5e5', display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: '4px 20px' }}>
+      {links.map(link => (
+        <button key={link.label} onClick={link.action} style={{ fontSize: '12px', color: '#5c5e62', transition: 'color 0.15s', padding: '4px 2px', textDecoration: 'none', background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'inherit' }}
+          onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = '#171a20'}
+          onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = '#5c5e62'}
+        >{link.label}</button>
       ))}
       <div style={{ fontSize: '12px', color: '#5c5e62', display: 'flex', alignItems: 'center', gap: '4px', marginLeft: 'auto' }}>
         <svg viewBox="0 0 20 20" width="13" height="13" fill="none" stroke="#5c5e62" strokeWidth="1.5">
