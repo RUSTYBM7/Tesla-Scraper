@@ -1,97 +1,95 @@
+import { useEffect, useRef, useState } from 'react';
+
+const BASE = import.meta.env.BASE_URL;
+
+const stats = [
+  { val: '45,000+', label: 'Superchargers Worldwide' },
+  { val: '15 min', label: 'to add 200 miles of range' },
+  { val: '99.97%', label: 'Network Uptime' },
+];
+
 export default function ChargingSection() {
+  const ref = useRef<HTMLElement>(null);
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect(); } }, { threshold: 0.1 });
+    if (ref.current) obs.observe(ref.current);
+    return () => obs.disconnect();
+  }, []);
+
   return (
-    <section style={{
-      position: 'relative', height: '580px', overflow: 'hidden',
-      background: 'linear-gradient(160deg, #0a1628 0%, #1a2a4a 50%, #0d1f3c 100%)',
+    <section ref={ref} style={{
+      position: 'relative',
+      height: '100vh',
+      minHeight: '560px',
+      overflow: 'hidden',
     }}>
-      {/* Animated road lines */}
-      <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}>
-        {/* Supercharger stalls */}
-        {[120, 280, 440, 600, 760, 920, 1080].map((x, i) => (
-          <div key={i} style={{
-            position: 'absolute',
-            left: `${x - 600}px`,
-            bottom: '120px',
-            width: '3px',
-            height: '80px',
-            background: 'rgba(255,255,255,0.2)',
-            transform: 'rotate(0deg)',
-          }}>
-            <div style={{
-              position: 'absolute', top: 0, left: '-12px',
-              width: '26px', height: '8px',
-              background: 'rgba(255,255,255,0.15)',
-              borderRadius: '2px 2px 0 0',
-            }} />
+      {/* Background photo */}
+      <div style={{
+        position: 'absolute', inset: 0,
+        backgroundImage: `url(${BASE}supercharger.jpg)`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }} />
+      {/* Overlay */}
+      <div style={{
+        position: 'absolute', inset: 0,
+        background: 'linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.55) 100%)',
+      }} />
+
+      {/* Stats */}
+      <div style={{
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        display: 'flex',
+        gap: '64px',
+        zIndex: 2,
+        opacity: visible ? 1 : 0,
+        transition: 'opacity 0.8s ease 0.3s',
+      }}>
+        {stats.map(({ val, label }) => (
+          <div key={label} style={{ textAlign: 'center' }}>
+            <div style={{ fontSize: '36px', fontWeight: 700, color: '#fff', lineHeight: 1 }}>{val}</div>
+            <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.75)', marginTop: '8px', maxWidth: '140px' }}>{label}</div>
           </div>
         ))}
-
-        {/* Glowing road */}
-        <div style={{
-          position: 'absolute', bottom: '80px', left: 0, right: 0,
-          height: '40px',
-          background: 'linear-gradient(to right, transparent, rgba(62,106,225,0.15) 30%, rgba(62,106,225,0.3) 50%, rgba(62,106,225,0.15) 70%, transparent)',
-        }} />
-
-        {/* Stats circles */}
-        {[
-          { val: '45,000+', label: 'Superchargers', x: '15%', y: '20%', size: 140 },
-          { val: '15 min', label: 'Avg. Charge Time', x: '50%', y: '12%', size: 120 },
-          { val: '99.97%', label: 'Network Uptime', x: '80%', y: '22%', size: 130 },
-        ].map(({ val, label, x, y, size }) => (
-          <div key={label} style={{
-            position: 'absolute', left: x, top: y,
-            transform: 'translate(-50%, 0)',
-            width: `${size}px`, height: `${size}px`,
-            borderRadius: '50%',
-            border: '1px solid rgba(62,106,225,0.3)',
-            background: 'rgba(62,106,225,0.08)',
-            display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-            backdropFilter: 'blur(4px)',
-          }}>
-            <div style={{ fontSize: '22px', fontWeight: 700, color: '#fff', lineHeight: 1 }}>{val}</div>
-            <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.6)', marginTop: '6px', textAlign: 'center', padding: '0 8px' }}>{label}</div>
-          </div>
-        ))}
-
-        {/* Lightning bolt icon */}
-        <div style={{
-          position: 'absolute', bottom: '175px', left: '50%', transform: 'translateX(-50%)',
-        }}>
-          <svg viewBox="0 0 60 100" width="40" height="60" fill="none">
-            <path d="M35 5 L10 55 L28 55 L22 95 L52 40 L34 40 L40 5 Z" fill="#3e6ae1" opacity="0.9" />
-          </svg>
-        </div>
       </div>
 
       {/* Content */}
       <div style={{
         position: 'absolute', inset: 0,
-        display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end',
-        paddingBottom: '64px',
+        display: 'flex', flexDirection: 'column',
+        alignItems: 'center', justifyContent: 'flex-end',
+        paddingBottom: '72px', zIndex: 2,
+        opacity: visible ? 1 : 0,
+        transform: visible ? 'translateY(0)' : 'translateY(20px)',
+        transition: 'opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s',
       }}>
-        <h2 style={{ fontSize: '28px', fontWeight: 600, color: '#fff', marginBottom: '6px', textAlign: 'center' }}>
+        <h2 style={{ fontSize: '28px', fontWeight: 600, color: '#fff', marginBottom: '8px', textAlign: 'center' }}>
           Supercharging
         </h2>
-        <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.75)', marginBottom: '28px', textAlign: 'center' }}>
-          The world's largest fast-charging network
+        <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.8)', marginBottom: '28px', textAlign: 'center' }}>
+          Go anywhere with the world's largest fast charging network
         </p>
         <div style={{ display: 'flex', gap: '12px' }}>
-          <a href="#" style={{
-            padding: '10px 28px', borderRadius: '4px', fontSize: '14px', fontWeight: 500,
-            background: '#3e6ae1', color: '#fff', display: 'inline-block', transition: 'background 0.2s',
+          <button style={{
+            padding: '11px 32px', borderRadius: '4px', fontSize: '14px', fontWeight: 500,
+            background: 'rgba(23,26,32,0.85)', color: '#fff', border: 'none', cursor: 'pointer',
+            backdropFilter: 'blur(6px)', transition: 'background 0.2s, transform 0.15s',
           }}
-            onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.background = '#2d5bc8'}
-            onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.background = '#3e6ae1'}
-          >Find a Charger</a>
-          <a href="#" style={{
-            padding: '10px 28px', borderRadius: '4px', fontSize: '14px', fontWeight: 500,
-            background: 'rgba(255,255,255,0.12)', color: '#fff', display: 'inline-block',
-            border: '1px solid rgba(255,255,255,0.25)', transition: 'background 0.2s',
+            onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = '#171a20'; (e.currentTarget as HTMLElement).style.transform = 'scale(1.02)'; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = 'rgba(23,26,32,0.85)'; (e.currentTarget as HTMLElement).style.transform = 'scale(1)'; }}
+          >Find a Charger</button>
+          <button style={{
+            padding: '11px 32px', borderRadius: '4px', fontSize: '14px', fontWeight: 500,
+            background: 'rgba(255,255,255,0.65)', color: '#171a20', border: 'none', cursor: 'pointer',
+            backdropFilter: 'blur(6px)', transition: 'background 0.2s, transform 0.15s',
           }}
-            onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.2)'}
-            onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.12)'}
-          >Learn More</a>
+            onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.92)'; (e.currentTarget as HTMLElement).style.transform = 'scale(1.02)'; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.65)'; (e.currentTarget as HTMLElement).style.transform = 'scale(1)'; }}
+          >Learn More</button>
         </div>
       </div>
     </section>
