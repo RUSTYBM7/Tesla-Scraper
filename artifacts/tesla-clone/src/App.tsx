@@ -1,27 +1,22 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import HeroSlider from './components/HeroSlider';
-import VehicleGrid from './components/VehicleGrid';
-import EnergySection from './components/EnergySection';
-import ChargingSection from './components/ChargingSection';
-import FSDSection from './components/FSDSection';
-import AccessoriesSection from './components/AccessoriesSection';
 import BottomBar from './components/BottomBar';
-import Footer from './components/Footer';
+import HomePage from './pages/HomePage';
+import VehiclePage from './pages/VehiclePage';
+import NotFound from './pages/not-found';
 
 export default function App() {
   return (
-    <div style={{ fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif' }}>
-      <Header />
-      <main>
-        <HeroSlider />
-        <VehicleGrid />
-        <EnergySection />
-        <ChargingSection />
-        <FSDSection />
-        <AccessoriesSection />
-        <Footer />
-      </main>
-      <BottomBar />
-    </div>
+    <BrowserRouter>
+      <div style={{ fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif' }}>
+        <Header />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/vehicles/:slug" element={<VehiclePage />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <BottomBar />
+      </div>
+    </BrowserRouter>
   );
 }

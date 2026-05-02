@@ -20,36 +20,59 @@ pnpm workspace monorepo using TypeScript. Contains a Tesla.com homepage clone fo
 
 ### `artifacts/tesla-clone` — Tesla Homepage Clone (Educational)
 - **Framework**: React + Vite, plain inline styles (no Tailwind/shadcn)
+- **Routing**: React Router v6 (multi-page)
 - **Preview path**: `/`
 - **Port**: `$PORT` (env-assigned)
-- **Purpose**: Educational pixel-perfect clone of Tesla.com homepage for studying UI/UX
+- **Purpose**: Educational pixel-perfect clone of Tesla.com homepage
+
+**Routes:**
+- `/` → `HomePage` — full scrolling homepage with hero slider, vehicle grid, energy, charging, FSD, accessories sections
+- `/vehicles/:slug` → `VehiclePage` — per-vehicle configurator (slug: `model-s`, `model-3`, `model-y`, `model-x`, `cybertruck`)
+- `*` → `NotFound` — 404 page
 
 **Components:**
-- `Header.tsx` — Fixed header, transparent→solid on scroll, mega-menu dropdowns with real vehicle/energy images
-- `HeroSlider.tsx` — Full-viewport 4-slide hero (FSD, Model Y, Model 3, Cybertruck) with crossfade, autoplay, pause/play, dot indicators
-- `VehicleGrid.tsx` — 2-col grid of 5 vehicle cards (Model S/Y/3/X/Cybertruck) with IntersectionObserver scroll animation, hover zoom
-- `EnergySection.tsx` — 2×2 grid: Solar Panels, Powerwall, Solar Roof, Megapack — real photos with scroll-in animation
-- `ChargingSection.tsx` — Full-height Supercharger section with stats (45K+ chargers, 15 min, 99.97%)
+- `Header.tsx` — Fixed header, transparent→solid on scroll, uses `useNavigate` for vehicle links
+- `HeroSlider.tsx` — Full-viewport 4-slide hero (Model Y, Model 3, FSD, Cybertruck) with crossfade, autoplay, dot indicators
+- `VehicleGrid.tsx` — 2-col grid of 5 vehicle cards with hover zoom (Ken Burns), horizontal color/trim carousels
+- `EnergySection.tsx` — 2×2 grid: Solar Panels, Powerwall, Solar Roof, Megapack — scroll-in animation
+- `ChargingSection.tsx` — Full-height Supercharger section with stats
 - `FSDSection.tsx` — Full-height FSD section with highway photo
-- `AccessoriesSection.tsx` — 4-column shop grid: Charging, Vehicle Accessories, Apparel, Lifestyle
+- `AccessoriesSection.tsx` — 4-column shop grid
 - `BottomBar.tsx` — Fixed bottom bar: "Ask a Question" + "Schedule a Drive Today"
 - `Footer.tsx` — Footer with Tesla links
+- `VehiclePage.tsx` — Full configurator: parallax hero, trim selector, color picker, specs bar, CTA buttons
 
-**Assets** (`public/`):
-- 50+ locally served images (downloaded from Unsplash + Tesla CDN)
-- Vehicle photos, energy section photos, grid images, hero slides
-- All images served locally (Tesla CDN blocks browser cross-origin requests)
+**Parallax Architecture (IMPORTANT — do not mix transforms):**
+- `containerRef` → section element (position: relative)
+- `bgRef` → outer div (top:-20%, height:140%) — receives `translateY` ONLY from `use-parallax.ts` hook
+- inner div inside bgRef → receives `scale` ONLY from React `hovered` state
+- NEVER mix translateY + scale on the same element — causes visual glitches
 
-**Key design details:**
-- Tesla CDN (digitalassets.tesla.com) blocks browser requests → all images are downloaded and served locally
-- Scroll-triggered fade-in via IntersectionObserver on every section
-- Ken Burns (scale) hover effect on all photo cards
-- Backdrop-filter blur on all CTA buttons
-- Header uses `window.scrollY > 20` to switch transparent↔solid
+**Confirmed Good Images** (no rival brand cars):
+- `hero-model-3.jpg` — white Tesla Model 3 on mountain road ✓
+- `hero-model-y.jpg` — red Tesla headlight close-up ✓
+- `hero-model-y-wide.jpg` — red Model Y wide shot ✓
+- `hero-highway.jpg` — open desert highway, no cars ✓
+- `tesla-supercharger-new.jpg` — Tesla Supercharger station ✓
+- `model-x-candidate2.jpg` — dark gray Tesla at sunset ✓
+- `fsd-night.jpg` — night/atmospheric shot ✓
+
+**Confirmed Bad Images** (non-Tesla cars — do NOT use for vehicle heroes):
+- `hero-model-s.jpg`, `hero-model-x.jpg`, `hero-cybertruck.jpg`, `hero-sedan.jpg`
+- `tesla-model-x-new.jpg`, `truck-candidate.jpg`, `tesla-model-s-new.jpg`, `tesla-model-s2.jpg`
+- `tesla-model3-red.jpg` (Hyundai), `tesla-interior-2.jpg` (Bugatti)
+
+**Current Image Assignments:**
+- Model S hero/grid: `hero-model-3.jpg` (white Tesla sedan)
+- Model 3 hero/grid: `hero-model-3.jpg` ✓
+- Model Y hero/grid: `hero-model-y.jpg` ✓
+- Model X hero/grid: `model-x-candidate2.jpg` (dark gray Tesla at sunset)
+- Cybertruck hero/grid: `hero-highway.jpg` (desert highway)
+- HeroSlider Cybertruck slide: `fsd-night.jpg`
 
 ## Key Commands
 
-- `pnpm run typecheck` — full typecheck across all packages
+- `pnpm run typecheck` — full typecheck across all packages (0 errors confirmed)
 - `pnpm run build` — typecheck + build all packages
 - `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from OpenAPI spec
 - `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
