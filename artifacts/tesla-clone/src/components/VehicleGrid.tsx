@@ -80,7 +80,7 @@ function VehicleSection({ v, idx }: { v: Vehicle; idx: number }) {
       <div style={{ position: 'absolute', bottom: '10%', left: 0, right: 0, textAlign: 'center', zIndex: 2, padding: '0 24px', opacity: vis ? 1 : 0, transform: vis ? 'translateY(0)' : 'translateY(16px)', transition: `opacity .7s ease ${idx * 0.06 + 0.1}s, transform .7s ease ${idx * 0.06 + 0.1}s` }}>
         <p style={{ fontSize: '14px', color: sc, marginBottom: '20px', textShadow: v.textLight ? '0 1px 6px rgba(0,0,0,.3)' : 'none' }}>{v.subtitle}</p>
         <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-          <button onClick={() => navigate(`/contact?subject=order&vehicle=${v.slug}`)} style={{ padding: '13px 44px', borderRadius: '4px', fontSize: '14px', fontWeight: 500, minWidth: '180px', background: 'rgba(23,26,32,.86)', color: '#fff', border: 'none', cursor: 'pointer', backdropFilter: 'blur(8px)', transition: 'background .2s, transform .15s' }}
+          <button onClick={() => navigate(`/configure/${v.slug}`)} style={{ padding: '13px 44px', borderRadius: '4px', fontSize: '14px', fontWeight: 500, minWidth: '180px', background: 'rgba(23,26,32,.86)', color: '#fff', border: 'none', cursor: 'pointer', backdropFilter: 'blur(8px)', transition: 'background .2s, transform .15s' }}
             onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = '#171a20'; (e.currentTarget as HTMLElement).style.transform = 'scale(1.025)'; }}
             onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(23,26,32,.86)'; (e.currentTarget as HTMLElement).style.transform = 'scale(1)'; }}
           >Order Now</button>

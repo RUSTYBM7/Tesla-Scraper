@@ -319,10 +319,10 @@ export default function VehiclePage() {
 
         {/* CTAs */}
         <div style={{ display: 'flex', gap: '12px', flexWrap: isMobile ? 'wrap' : 'nowrap' }}>
-          <button onClick={() => navigate(`/contact?subject=order&vehicle=${slug}`)} style={{ flex: 1, minWidth: isMobile ? '100%' : undefined, padding: '17px', borderRadius: '8px', fontSize: '15px', fontWeight: 700, background: '#171a20', color: '#fff', cursor: 'pointer', border: 'none', fontFamily: 'inherit', transition: 'background .2s, transform .15s' }}
+          <button onClick={() => navigate(`/configure/${slug}`)} style={{ flex: 1, minWidth: isMobile ? '100%' : undefined, padding: '17px', borderRadius: '8px', fontSize: '15px', fontWeight: 700, background: '#171a20', color: '#fff', cursor: 'pointer', border: 'none', fontFamily: 'inherit', transition: 'background .2s, transform .15s' }}
             onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = '#2a2d35'; (e.currentTarget as HTMLElement).style.transform = 'scale(1.01)'; }}
             onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = '#171a20'; (e.currentTarget as HTMLElement).style.transform = 'scale(1)'; }}
-          >Order Now — {activeTrim.price}</button>
+          >Configure & Order</button>
           <button onClick={() => navigate(`/contact?subject=demo&vehicle=${slug}`)} style={{ flex: 1, minWidth: isMobile ? '100%' : undefined, padding: '17px', borderRadius: '8px', fontSize: '15px', fontWeight: 700, background: '#fff', color: '#171a20', cursor: 'pointer', border: '2px solid #e0e0e0', fontFamily: 'inherit', transition: 'background .2s, border-color .2s, transform .15s' }}
             onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = '#f4f4f4'; (e.currentTarget as HTMLElement).style.transform = 'scale(1.01)'; }}
             onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = '#fff'; (e.currentTarget as HTMLElement).style.transform = 'scale(1)'; }}
