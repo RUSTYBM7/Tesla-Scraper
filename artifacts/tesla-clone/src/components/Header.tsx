@@ -18,6 +18,13 @@ interface NavItem {
   };
 }
 
+const ENERGY_SLUGS: Record<string, string> = {
+  'Solar Panels': 'solar-panels',
+  'Solar Roof':   'solar-roof',
+  'Powerwall':    'powerwall',
+  'Megapack':     'megapack',
+};
+
 const navItems: NavItem[] = [
   {
     label: 'Vehicles',
@@ -30,15 +37,15 @@ const navItems: NavItem[] = [
         { name: 'Cybertruck', img: `${BASE}menu-cybertruck.png` },
       ],
       links: [
-        { label: 'Current Offers', route: '/contact?subject=general' },
-        { label: 'Demo Drive', route: '/contact?subject=demo' },
-        { label: 'Trade-in', route: '/contact?subject=general' },
-        { label: 'Pre-Owned', route: '/contact?subject=general' },
-        { label: 'Trip Planner', route: '/contact?subject=general' },
-        { label: 'Features', route: '/compare' },
-        { label: 'Help Me Choose', route: '/compare' },
-        { label: 'Compare Models', route: '/compare' },
-        { label: 'Safety', route: '/contact?subject=service' },
+        { label: 'Current Offers',  route: '/offers' },
+        { label: 'Demo Drive',      route: '/contact?subject=demo' },
+        { label: 'Trade-in',        route: '/contact?subject=tradein' },
+        { label: 'Pre-Owned',       route: '/pre-owned' },
+        { label: 'Trip Planner',    route: '/contact?subject=trip' },
+        { label: 'Features',        route: '/compare' },
+        { label: 'Help Me Choose',  route: '/compare' },
+        { label: 'Compare Models',  route: '/compare' },
+        { label: 'Safety',          route: '/safety' },
       ],
     },
   },
@@ -52,12 +59,12 @@ const navItems: NavItem[] = [
         { name: 'Megapack',     img: `${BASE}energy-megapack.jpg` },
       ],
       links: [
-        { label: 'Schedule a Consultation', route: '/contact?subject=general' },
-        { label: 'Why Solar', route: '/contact?subject=general' },
-        { label: 'Incentives', route: '/contact?subject=general' },
-        { label: 'Support', route: '/contact?subject=service' },
-        { label: 'Commercial', route: '/contact?subject=general' },
-        { label: 'Utilities', route: '/contact?subject=general' },
+        { label: 'Schedule a Consultation', route: '/contact?subject=energy' },
+        { label: 'Why Solar',               route: '/energy/solar-panels' },
+        { label: 'Incentives',              route: '/offers' },
+        { label: 'Support',                 route: '/contact?subject=service' },
+        { label: 'Commercial',              route: '/energy/megapack' },
+        { label: 'Utilities',               route: '/energy/megapack' },
       ],
     },
   },
@@ -65,13 +72,13 @@ const navItems: NavItem[] = [
     label: 'Charging',
     megaMenu: {
       featured: [
-        { name: 'Supercharger', img: `${BASE}tesla-supercharger-new.jpg` },
+        { name: 'Supercharger',  img: `${BASE}tesla-supercharger-new.jpg` },
         { name: 'Home Charging', img: `${BASE}tesla-charging-station.jpg` },
       ],
       links: [
-        { label: 'Help Me Charge', route: '/contact?subject=charging' },
-        { label: 'Charging Calculator', route: '/contact?subject=charging' },
-        { label: 'Charging With NACS', route: '/contact?subject=charging' },
+        { label: 'Help Me Charge',      route: '/charging' },
+        { label: 'Charging Calculator', route: '/charging' },
+        { label: 'Charging With NACS',  route: '/charging' },
         { label: 'Host a Supercharger', route: '/contact?subject=charging' },
       ],
     },
@@ -81,21 +88,21 @@ const navItems: NavItem[] = [
     megaMenu: {
       featured: [],
       links: [
-        { label: 'Demo Drive', route: '/contact?subject=demo' },
-        { label: 'Insurance', route: '/contact?subject=general' },
-        { label: 'Current Offers', route: '/contact?subject=general' },
-        { label: 'Gallery', route: '/gallery' },
-        { label: 'Video Guides', route: '/gallery' },
+        { label: 'Demo Drive',       route: '/contact?subject=demo' },
+        { label: 'Insurance',        route: '/insurance' },
+        { label: 'Current Offers',   route: '/offers' },
+        { label: 'Gallery',          route: '/gallery' },
+        { label: 'Video Guides',     route: '/gallery' },
         { label: 'Customer Stories', route: '/gallery' },
-        { label: 'Events', route: '/contact?subject=general' },
-        { label: 'Safety', route: '/contact?subject=service' },
-        { label: 'Find Us', route: '/contact' },
-        { label: 'About', route: '/contact?subject=general' },
-        { label: 'Careers', route: '/contact?subject=general' },
+        { label: 'Events',           route: '/contact?subject=events' },
+        { label: 'Safety',           route: '/safety' },
+        { label: 'Find Us',          route: '/contact' },
+        { label: 'About',            route: '/about' },
+        { label: 'Careers',          route: '/careers' },
       ],
     },
   },
-  { label: 'Shop', route: '/contact?subject=general' },
+  { label: 'Shop', route: '/shop' },
 ];
 
 function useIsMobile() {
@@ -258,22 +265,29 @@ export default function Header() {
               <div style={{ display: 'flex', gap: '28px', flex: 1 }}>
                 {item.megaMenu.featured.map(v => {
                   const slug = VEHICLE_SLUGS[v.name];
+                  const energySlug = ENERGY_SLUGS[v.name];
+                  const isCharging = v.name === 'Supercharger' || v.name === 'Home Charging';
+                  const getRoute = () => {
+                    if (slug) return `/vehicles/${slug}`;
+                    if (energySlug) return `/energy/${energySlug}`;
+                    if (isCharging) return '/charging';
+                    return '/contact?subject=general';
+                  };
                   return (
                     <div key={v.name} style={{ textAlign: 'center', minWidth: '100px' }}>
                       <div style={{ width: '130px', height: '80px', margin: '0 auto', borderRadius: '6px', overflow: 'hidden', background: '#f5f5f5', cursor: 'pointer' }}
-                        onClick={() => slug ? goRoute(`/vehicles/${slug}`) : goRoute('/contact?subject=general')}>
+                        onClick={() => goRoute(getRoute())}>
                         <img src={v.img} alt={v.name} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform .3s' }}
                           onMouseEnter={e => (e.currentTarget as HTMLElement).style.transform = 'scale(1.06)'}
                           onMouseLeave={e => (e.currentTarget as HTMLElement).style.transform = 'scale(1)'}
                         />
                       </div>
                       <div style={{ fontWeight: 600, fontSize: '13px', marginTop: '8px', color: '#171a20' }}>{v.name}</div>
-                      {slug && (
-                        <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', marginTop: '5px' }}>
-                          <button onClick={() => goRoute(`/vehicles/${slug}`)} style={{ fontSize: '12px', color: '#5c5e62', background: 'none', border: 'none', cursor: 'pointer', textDecoration: 'underline', textUnderlineOffset: '2px', padding: 0 }}>Learn</button>
-                          <button onClick={() => goRoute(`/contact?subject=order&vehicle=${slug}`)} style={{ fontSize: '12px', color: '#5c5e62', background: 'none', border: 'none', cursor: 'pointer', textDecoration: 'underline', textUnderlineOffset: '2px', padding: 0 }}>Order</button>
-                        </div>
-                      )}
+                      <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', marginTop: '5px' }}>
+                        <button onClick={() => goRoute(getRoute())} style={{ fontSize: '12px', color: '#5c5e62', background: 'none', border: 'none', cursor: 'pointer', textDecoration: 'underline', textUnderlineOffset: '2px', padding: 0 }}>Learn</button>
+                        {slug && <button onClick={() => goRoute(`/configure/${slug}`)} style={{ fontSize: '12px', color: '#5c5e62', background: 'none', border: 'none', cursor: 'pointer', textDecoration: 'underline', textUnderlineOffset: '2px', padding: 0 }}>Order</button>}
+                        {energySlug && <button onClick={() => goRoute(`/contact?subject=energy`)} style={{ fontSize: '12px', color: '#5c5e62', background: 'none', border: 'none', cursor: 'pointer', textDecoration: 'underline', textUnderlineOffset: '2px', padding: 0 }}>Order</button>}
+                      </div>
                     </div>
                   );
                 })}
