@@ -41,7 +41,7 @@ const navItems: NavItem[] = [
         { label: 'Demo Drive',      route: '/contact?subject=demo' },
         { label: 'Trade-in',        route: '/contact?subject=tradein' },
         { label: 'Pre-Owned',       route: '/pre-owned' },
-        { label: 'Trip Planner',    route: '/contact?subject=trip' },
+        { label: 'Trip Planner',    route: '/trip-planner' },
         { label: 'Features',        route: '/compare' },
         { label: 'Help Me Choose',  route: '/compare' },
         { label: 'Compare Models',  route: '/compare' },

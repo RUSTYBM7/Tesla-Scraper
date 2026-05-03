@@ -16,6 +16,7 @@ import AboutPage from './pages/AboutPage';
 import CareersPage from './pages/CareersPage';
 import ShopPage from './pages/ShopPage';
 import InsurancePage from './pages/InsurancePage';
+import TripPlannerPage from './pages/TripPlannerPage';
 import NotFound from './pages/not-found';
 
 export default function App() {
@@ -39,6 +40,7 @@ export default function App() {
           <Route path="/careers" element={<CareersPage />} />
           <Route path="/shop" element={<ShopPage />} />
           <Route path="/insurance" element={<InsurancePage />} />
+          <Route path="/trip-planner" element={<TripPlannerPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <BottomBar />
