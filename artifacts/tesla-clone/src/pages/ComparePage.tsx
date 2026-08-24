@@ -26,7 +26,7 @@ const VEHICLES: Record<string, VehicleCompareData> = {
     label: 'Model S', category: 'Sedan', img: `${BASE}dl-hero-model-s.jpg`,
     startingPrice: 74990, priceDisplay: '$74,990',
     range: 405, accel: 3.1, topSpeed: 149, seating: 5, cargo: 28, power: 670, towing: 2700,
-    tagline: 'Relentless Performance', accent: '#e8223c',
+    tagline: 'Relentless Performance', accent: '#171a20',
     trims: [
       { name: 'Model S', price: '$74,990', range: '405 mi', accel: '3.1s' },
       { name: 'Model S Plaid', price: '$89,990', range: '396 mi', accel: '1.99s' },
@@ -36,7 +36,7 @@ const VEHICLES: Record<string, VehicleCompareData> = {
     label: 'Model 3', category: 'Sedan', img: `${BASE}dl-hero-model-3.jpg`,
     startingPrice: 40240, priceDisplay: '$40,240',
     range: 358, accel: 4.2, topSpeed: 145, seating: 5, cargo: 23, power: 283, towing: 2000,
-    tagline: 'Order. Drive. Enjoy.', accent: '#3e6ae1',
+    tagline: 'Order. Drive. Enjoy.', accent: '#171a20',
     trims: [
       { name: 'Model 3 RWD', price: '$40,240', range: '341 mi', accel: '5.8s' },
       { name: 'Long Range AWD', price: '$47,740', range: '358 mi', accel: '4.2s' },
@@ -221,8 +221,8 @@ export default function ComparePage() {
         textAlign: 'center', borderBottom: '1px solid rgba(255,255,255,0.06)',
       }}>
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 16px', borderRadius: '24px', background: 'rgba(62,106,225,0.15)', border: '1px solid rgba(62,106,225,0.3)', marginBottom: '24px' }}>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="#3e6ae1"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg>
-          <span style={{ fontSize: '12px', fontWeight: 600, color: '#3e6ae1', letterSpacing: '0.08em', textTransform: 'uppercase' }}>Side-by-Side Comparison</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#171a20"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg>
+          <span style={{ fontSize: '12px', fontWeight: 600, color: '#171a20', letterSpacing: '0.08em', textTransform: 'uppercase' }}>Side-by-Side Comparison</span>
         </div>
         <h1 className="compare-hero-title" style={{ fontSize: '56px', fontWeight: 700, color: '#fff', letterSpacing: '-2px', lineHeight: 1.05, marginBottom: '16px' }}>
           Compare Models

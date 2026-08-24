@@ -157,7 +157,7 @@ export default function ChargingPage() {
                     <h3 style={{ fontSize: '20px', fontWeight: 700, color: '#171a20' }}>{opt.name}</h3>
                     <span style={{ fontSize: '18px', fontWeight: 700, color: '#171a20' }}>{opt.price}</span>
                   </div>
-                  <p style={{ fontSize: '13px', fontWeight: 600, color: '#3e6ae1', marginBottom: '12px' }}>{opt.speed}</p>
+                  <p style={{ fontSize: '13px', fontWeight: 600, color: '#171a20', marginBottom: '12px' }}>{opt.speed}</p>
                   <p style={{ fontSize: '14px', color: '#6e7180', lineHeight: 1.65, marginBottom: '20px' }}>{opt.desc}</p>
                   <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
                     {opt.features.map(f => (

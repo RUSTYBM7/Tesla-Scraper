@@ -103,7 +103,7 @@ export default function ContactPage() {
         @keyframes spin { to{transform:rotate(360deg)} }
         @keyframes checkPop { 0%{transform:scale(0)} 70%{transform:scale(1.2)} 100%{transform:scale(1)} }
         .ct-input:focus { border-color:#171a20!important; box-shadow:0 0 0 3px rgba(23,26,32,.1)!important; }
-        .ct-input-err { border-color:#e8223c!important; }
+        .ct-input-err { border-color:#171a20!important; }
       `}</style>
 
       {/* Hero */}
@@ -150,11 +150,11 @@ export default function ContactPage() {
           ) : (
             <form onSubmit={handleSubmit} noValidate>
               <h2 style={{ fontSize: isMobile ? '22px' : '26px', fontWeight: 700, color: '#171a20', marginBottom: '6px' }}>Send Us a Message</h2>
-              <p style={{ fontSize: '14px', color: '#9a9a9a', marginBottom: '32px' }}>Fields marked <span style={{ color: '#e8223c' }}>*</span> are required.</p>
+              <p style={{ fontSize: '14px', color: '#9a9a9a', marginBottom: '32px' }}>Fields marked <span style={{ color: '#171a20' }}>*</span> are required.</p>
 
               {/* Subject chips */}
               <div style={{ marginBottom: '20px' }}>
-                <label style={{ display: 'block', fontSize: '12px', fontWeight: 600, color: '#5c5e62', letterSpacing: '0.07em', textTransform: 'uppercase', marginBottom: '10px' }}>Subject <span style={{ color: '#e8223c' }}>*</span></label>
+                <label style={{ display: 'block', fontSize: '12px', fontWeight: 600, color: '#5c5e62', letterSpacing: '0.07em', textTransform: 'uppercase', marginBottom: '10px' }}>Subject <span style={{ color: '#171a20' }}>*</span></label>
                 <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
                   {SUBJECTS.map(s => (
                     <button key={s.value} type="button" onClick={() => set('subject', s.value)} style={{ padding: '8px 16px', borderRadius: '24px', fontSize: '13px', fontWeight: 500, cursor: 'pointer', fontFamily: 'inherit', transition: 'all .18s', background: form.subject === s.value ? '#171a20' : '#f4f4f4', color: form.subject === s.value ? '#fff' : '#5c5e62', border: form.subject === s.value ? '1.5px solid #171a20' : '1.5px solid #e0e0e0' }}>{s.label}</button>
@@ -165,14 +165,14 @@ export default function ContactPage() {
               {/* Name + Email */}
               <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '14px', marginBottom: '14px' }}>
                 <div>
-                  <label style={{ display: 'block', fontSize: '12px', fontWeight: 600, color: '#5c5e62', letterSpacing: '0.07em', textTransform: 'uppercase', marginBottom: '8px' }}>Full Name <span style={{ color: '#e8223c' }}>*</span></label>
-                  <input className={`ct-input${errors.name ? ' ct-input-err' : ''}`} type="text" value={form.name} onChange={e => set('name', e.target.value)} placeholder="John Smith" style={{ ...inputStyle, border: `1.5px solid ${errors.name ? '#e8223c' : '#e0e0e0'}` }} />
-                  {errors.name && <p style={{ fontSize: '12px', color: '#e8223c', marginTop: '5px' }}>{errors.name}</p>}
+                  <label style={{ display: 'block', fontSize: '12px', fontWeight: 600, color: '#5c5e62', letterSpacing: '0.07em', textTransform: 'uppercase', marginBottom: '8px' }}>Full Name <span style={{ color: '#171a20' }}>*</span></label>
+                  <input className={`ct-input${errors.name ? ' ct-input-err' : ''}`} type="text" value={form.name} onChange={e => set('name', e.target.value)} placeholder="John Smith" style={{ ...inputStyle, border: `1.5px solid ${errors.name ? '#171a20' : '#e0e0e0'}` }} />
+                  {errors.name && <p style={{ fontSize: '12px', color: '#171a20', marginTop: '5px' }}>{errors.name}</p>}
                 </div>
                 <div>
-                  <label style={{ display: 'block', fontSize: '12px', fontWeight: 600, color: '#5c5e62', letterSpacing: '0.07em', textTransform: 'uppercase', marginBottom: '8px' }}>Email <span style={{ color: '#e8223c' }}>*</span></label>
-                  <input className={`ct-input${errors.email ? ' ct-input-err' : ''}`} type="email" value={form.email} onChange={e => set('email', e.target.value)} placeholder="you@example.com" style={{ ...inputStyle, border: `1.5px solid ${errors.email ? '#e8223c' : '#e0e0e0'}` }} />
-                  {errors.email && <p style={{ fontSize: '12px', color: '#e8223c', marginTop: '5px' }}>{errors.email}</p>}
+                  <label style={{ display: 'block', fontSize: '12px', fontWeight: 600, color: '#5c5e62', letterSpacing: '0.07em', textTransform: 'uppercase', marginBottom: '8px' }}>Email <span style={{ color: '#171a20' }}>*</span></label>
+                  <input className={`ct-input${errors.email ? ' ct-input-err' : ''}`} type="email" value={form.email} onChange={e => set('email', e.target.value)} placeholder="you@example.com" style={{ ...inputStyle, border: `1.5px solid ${errors.email ? '#171a20' : '#e0e0e0'}` }} />
+                  {errors.email && <p style={{ fontSize: '12px', color: '#171a20', marginTop: '5px' }}>{errors.email}</p>}
                 </div>
               </div>
 
@@ -192,9 +192,9 @@ export default function ContactPage() {
 
               {/* Message */}
               <div style={{ marginBottom: '28px' }}>
-                <label style={{ display: 'block', fontSize: '12px', fontWeight: 600, color: '#5c5e62', letterSpacing: '0.07em', textTransform: 'uppercase', marginBottom: '8px' }}>Message <span style={{ color: '#e8223c' }}>*</span></label>
-                <textarea className={`ct-input${errors.message ? ' ct-input-err' : ''}`} value={form.message} onChange={e => set('message', e.target.value)} placeholder="Tell us how we can help..." rows={5} style={{ ...inputStyle, resize: 'vertical', minHeight: '120px', border: `1.5px solid ${errors.message ? '#e8223c' : '#e0e0e0'}` }} />
-                {errors.message && <p style={{ fontSize: '12px', color: '#e8223c', marginTop: '5px' }}>{errors.message}</p>}
+                <label style={{ display: 'block', fontSize: '12px', fontWeight: 600, color: '#5c5e62', letterSpacing: '0.07em', textTransform: 'uppercase', marginBottom: '8px' }}>Message <span style={{ color: '#171a20' }}>*</span></label>
+                <textarea className={`ct-input${errors.message ? ' ct-input-err' : ''}`} value={form.message} onChange={e => set('message', e.target.value)} placeholder="Tell us how we can help..." rows={5} style={{ ...inputStyle, resize: 'vertical', minHeight: '120px', border: `1.5px solid ${errors.message ? '#171a20' : '#e0e0e0'}` }} />
+                {errors.message && <p style={{ fontSize: '12px', color: '#171a20', marginTop: '5px' }}>{errors.message}</p>}
               </div>
 
               <button type="submit" disabled={status === 'loading'} style={{ width: '100%', padding: '16px', borderRadius: '12px', background: '#171a20', border: 'none', cursor: status === 'loading' ? 'default' : 'pointer', fontSize: '15px', fontWeight: 700, color: '#fff', fontFamily: 'inherit', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', opacity: status === 'loading' ? 0.8 : 1, transition: 'background .2s' }}

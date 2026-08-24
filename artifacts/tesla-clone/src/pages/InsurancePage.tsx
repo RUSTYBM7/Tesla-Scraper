@@ -119,7 +119,7 @@ export default function InsurancePage() {
               ].map(f => (
                 <div key={f.factor} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px 0', borderBottom: '1px solid rgba(255,255,255,.06)' }}>
                   <span style={{ fontSize: '14px', color: 'rgba(255,255,255,.7)' }}>{f.factor}</span>
-                  <span style={{ fontSize: '11px', fontWeight: 700, color: f.weight === 'Most impactful' ? '#f59e0b' : f.weight === 'High impact' ? '#ef4444' : '#3e6ae1', background: f.weight === 'Most impactful' ? 'rgba(245,158,11,.12)' : f.weight === 'High impact' ? 'rgba(239,68,68,.12)' : 'rgba(62,106,225,.12)', padding: '3px 8px', borderRadius: '8px' }}>{f.weight}</span>
+                  <span style={{ fontSize: '11px', fontWeight: 700, color: f.weight === 'Most impactful' ? '#5c5e62' : f.weight === 'High impact' ? '#ef4444' : '#171a20', background: f.weight === 'Most impactful' ? 'rgba(245,158,11,.12)' : f.weight === 'High impact' ? 'rgba(239,68,68,.12)' : 'rgba(62,106,225,.12)', padding: '3px 8px', borderRadius: '8px' }}>{f.weight}</span>
                 </div>
               ))}
             </div>

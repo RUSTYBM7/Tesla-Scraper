@@ -128,7 +128,7 @@ export default function AboutPage() {
                   {!isMobile && m.year}
                 </div>
                 <div style={{ flex: 1, background: '#f8f9fa', borderRadius: '12px', padding: '16px 20px' }}>
-                  {isMobile && <div style={{ fontSize: '12px', fontWeight: 700, color: '#3e6ae1', marginBottom: '6px' }}>{m.year}</div>}
+                  {isMobile && <div style={{ fontSize: '12px', fontWeight: 700, color: '#171a20', marginBottom: '6px' }}>{m.year}</div>}
                   <p style={{ fontSize: '14px', color: '#374151', lineHeight: 1.65 }}>{m.event}</p>
                 </div>
               </div>
@@ -151,7 +151,7 @@ export default function AboutPage() {
                   <span style={{ fontSize: '22px', fontWeight: 700, color: '#fff' }}>{l.name.charAt(0)}</span>
                 </div>
                 <h3 style={{ fontSize: '15px', fontWeight: 700, color: '#171a20', marginBottom: '4px' }}>{l.name}</h3>
-                <p style={{ fontSize: '12px', color: '#3e6ae1', fontWeight: 600, marginBottom: '8px' }}>{l.title}</p>
+                <p style={{ fontSize: '12px', color: '#171a20', fontWeight: 600, marginBottom: '8px' }}>{l.title}</p>
                 <p style={{ fontSize: '12px', color: '#9ca3af', lineHeight: 1.55 }}>{l.desc}</p>
               </div>
             ))}

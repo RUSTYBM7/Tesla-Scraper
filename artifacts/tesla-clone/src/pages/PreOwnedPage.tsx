@@ -17,13 +17,13 @@ interface Listing {
 
 const LISTINGS: Listing[] = [
   { id: 'po1', model: 'Model 3', slug: 'model-3', year: 2023, trim: 'Long Range AWD', miles: 12400, price: 38990, color: 'Pearl White', img: `${BASE}dl-hero-model-3.jpg`, location: 'Seattle, WA', badge: 'Great Deal', badgeColor: '#22c55e' },
-  { id: 'po2', model: 'Model Y', slug: 'model-y', year: 2022, trim: 'Performance AWD', miles: 18700, price: 46500, color: 'Deep Blue Metallic', img: `${BASE}dl-hero-model-y.jpg`, location: 'Portland, OR', badge: 'CPO Certified', badgeColor: '#3e6ae1' },
-  { id: 'po3', model: 'Model S', slug: 'model-s', year: 2021, trim: 'Plaid', miles: 24300, price: 74990, color: 'Midnight Silver', img: `${BASE}dl-hero-model-s.jpg`, location: 'San Francisco, CA', badge: 'Low Miles', badgeColor: '#8b5cf6' },
+  { id: 'po2', model: 'Model Y', slug: 'model-y', year: 2022, trim: 'Performance AWD', miles: 18700, price: 46500, color: 'Deep Blue Metallic', img: `${BASE}dl-hero-model-y.jpg`, location: 'Portland, OR', badge: 'CPO Certified', badgeColor: '#171a20' },
+  { id: 'po3', model: 'Model S', slug: 'model-s', year: 2021, trim: 'Plaid', miles: 24300, price: 74990, color: 'Midnight Silver', img: `${BASE}dl-hero-model-s.jpg`, location: 'San Francisco, CA', badge: 'Low Miles', badgeColor: '#5c5e62' },
   { id: 'po4', model: 'Model 3', slug: 'model-3', year: 2022, trim: 'Standard Range RWD', miles: 31200, price: 28500, color: 'Stealth Grey', img: `${BASE}dl-hero-model-3.jpg`, location: 'Los Angeles, CA' },
-  { id: 'po5', model: 'Model X', slug: 'model-x', year: 2022, trim: 'Long Range AWD', miles: 21800, price: 69990, color: 'Pearl White', img: `${BASE}dl-hero-model-x.jpg`, location: 'Phoenix, AZ', badge: 'CPO Certified', badgeColor: '#3e6ae1' },
-  { id: 'po6', model: 'Model Y', slug: 'model-y', year: 2023, trim: 'Long Range AWD', miles: 8900, price: 49990, color: 'Ultra Red', img: `${BASE}dl-hero-model-y.jpg`, location: 'Denver, CO', badge: 'Like New', badgeColor: '#f59e0b' },
+  { id: 'po5', model: 'Model X', slug: 'model-x', year: 2022, trim: 'Long Range AWD', miles: 21800, price: 69990, color: 'Pearl White', img: `${BASE}dl-hero-model-x.jpg`, location: 'Phoenix, AZ', badge: 'CPO Certified', badgeColor: '#171a20' },
+  { id: 'po6', model: 'Model Y', slug: 'model-y', year: 2023, trim: 'Long Range AWD', miles: 8900, price: 49990, color: 'Ultra Red', img: `${BASE}dl-hero-model-y.jpg`, location: 'Denver, CO', badge: 'Like New', badgeColor: '#5c5e62' },
   { id: 'po7', model: 'Model 3', slug: 'model-3', year: 2021, trim: 'Performance AWD', miles: 38500, price: 32990, color: 'Deep Blue Metallic', img: `${BASE}dl-hero-model-3.jpg`, location: 'Chicago, IL' },
-  { id: 'po8', model: 'Cybertruck', slug: 'cybertruck', year: 2024, trim: 'AWD', miles: 4200, price: 77990, color: 'Stainless Steel', img: `${BASE}Cybertruck-Main-Hero-Desktop.jpg`, location: 'Austin, TX', badge: 'Rare Find', badgeColor: '#e8223c' },
+  { id: 'po8', model: 'Cybertruck', slug: 'cybertruck', year: 2024, trim: 'AWD', miles: 4200, price: 77990, color: 'Stainless Steel', img: `${BASE}Cybertruck-Main-Hero-Desktop.jpg`, location: 'Austin, TX', badge: 'Rare Find', badgeColor: '#171a20' },
 ];
 
 const BENEFITS = [
@@ -142,7 +142,7 @@ export default function PreOwnedPage() {
           ))}
         </div>
         {filtered.length === 0 && (
-          <div style={{ textAlign: 'center', padding: '80px 20px', color: '#9ca3af', fontSize: '16px' }}>No vehicles match your filters. <button onClick={() => { setFilter('All'); setMaxPrice(100000); }} style={{ color: '#3e6ae1', background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'inherit', fontSize: '16px' }}>Reset filters</button></div>
+          <div style={{ textAlign: 'center', padding: '80px 20px', color: '#9ca3af', fontSize: '16px' }}>No vehicles match your filters. <button onClick={() => { setFilter('All'); setMaxPrice(100000); }} style={{ color: '#171a20', background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'inherit', fontSize: '16px' }}>Reset filters</button></div>
         )}
       </div>
     </div>

@@ -207,7 +207,7 @@ export default function VehiclePage() {
     return (
       <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
         <h1 style={{ fontSize: '32px', fontWeight: 600, marginBottom: '16px' }}>Vehicle not found</h1>
-        <button onClick={() => navigate('/')} style={{ color: '#3e6ae1', background: 'none', border: 'none', cursor: 'pointer', fontSize: '16px', fontFamily: 'inherit' }}>Back to Home</button>
+        <button onClick={() => navigate('/')} style={{ color: '#171a20', background: 'none', border: 'none', cursor: 'pointer', fontSize: '16px', fontFamily: 'inherit' }}>Back to Home</button>
       </div>
     );
   }

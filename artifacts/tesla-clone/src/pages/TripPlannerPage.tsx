@@ -197,14 +197,14 @@ export default function TripPlannerPage() {
                 <label style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', color: '#6e7180', textTransform: 'uppercase', display: 'block', marginBottom: '7px' }}>Starting Point</label>
                 <div style={{ position: 'relative' }}>
                   <svg style={{ position: 'absolute', left: '13px', top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }} viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#9ca3af" strokeWidth="2" strokeLinecap="round"><circle cx="12" cy="10" r="3"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
-                  <input value={origin} onChange={e => setOrigin(e.target.value)} placeholder="e.g. Los Angeles, CA" required style={{ width: '100%', padding: '13px 14px 13px 38px', border: '1.5px solid #e5e7eb', borderRadius: '10px', fontSize: '14px', fontFamily: 'inherit', color: '#171a20', outline: 'none', boxSizing: 'border-box', transition: 'border .15s' }} onFocus={e => e.currentTarget.style.border = '1.5px solid #3e6ae1'} onBlur={e => e.currentTarget.style.border = '1.5px solid #e5e7eb'} />
+                  <input value={origin} onChange={e => setOrigin(e.target.value)} placeholder="e.g. Los Angeles, CA" required style={{ width: '100%', padding: '13px 14px 13px 38px', border: '1.5px solid #e5e7eb', borderRadius: '10px', fontSize: '14px', fontFamily: 'inherit', color: '#171a20', outline: 'none', boxSizing: 'border-box', transition: 'border .15s' }} onFocus={e => e.currentTarget.style.border = '1.5px solid #171a20'} onBlur={e => e.currentTarget.style.border = '1.5px solid #e5e7eb'} />
                 </div>
               </div>
               <div>
                 <label style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', color: '#6e7180', textTransform: 'uppercase', display: 'block', marginBottom: '7px' }}>Destination</label>
                 <div style={{ position: 'relative' }}>
                   <svg style={{ position: 'absolute', left: '13px', top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }} viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#e53935" strokeWidth="2" strokeLinecap="round"><circle cx="12" cy="10" r="3"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
-                  <input value={destination} onChange={e => setDestination(e.target.value)} placeholder="e.g. San Francisco, CA" required style={{ width: '100%', padding: '13px 14px 13px 38px', border: '1.5px solid #e5e7eb', borderRadius: '10px', fontSize: '14px', fontFamily: 'inherit', color: '#171a20', outline: 'none', boxSizing: 'border-box', transition: 'border .15s' }} onFocus={e => e.currentTarget.style.border = '1.5px solid #3e6ae1'} onBlur={e => e.currentTarget.style.border = '1.5px solid #e5e7eb'} />
+                  <input value={destination} onChange={e => setDestination(e.target.value)} placeholder="e.g. San Francisco, CA" required style={{ width: '100%', padding: '13px 14px 13px 38px', border: '1.5px solid #e5e7eb', borderRadius: '10px', fontSize: '14px', fontFamily: 'inherit', color: '#171a20', outline: 'none', boxSizing: 'border-box', transition: 'border .15s' }} onFocus={e => e.currentTarget.style.border = '1.5px solid #171a20'} onBlur={e => e.currentTarget.style.border = '1.5px solid #e5e7eb'} />
                 </div>
               </div>
             </div>
@@ -217,7 +217,7 @@ export default function TripPlannerPage() {
                 </select>
               </div>
               <div>
-                <label style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', color: '#6e7180', textTransform: 'uppercase', display: 'block', marginBottom: '7px' }}>Starting Charge — <span style={{ color: startCharge >= 80 ? '#22c55e' : startCharge >= 50 ? '#f59e0b' : '#ef4444' }}>{startCharge}%</span></label>
+                <label style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', color: '#6e7180', textTransform: 'uppercase', display: 'block', marginBottom: '7px' }}>Starting Charge — <span style={{ color: startCharge >= 80 ? '#22c55e' : startCharge >= 50 ? '#5c5e62' : '#ef4444' }}>{startCharge}%</span></label>
                 <input type="range" min={20} max={100} step={5} value={startCharge} onChange={e => setStartCharge(Number(e.target.value))} style={{ width: '100%', accentColor: '#171a20', cursor: 'pointer', marginTop: '10px' }} />
               </div>
             </div>
@@ -303,7 +303,7 @@ export default function TripPlannerPage() {
               {result.legs.map((leg, idx) => {
                 const isLast = idx === result.legs.length - 1;
                 const chargePct = Math.min(100, Math.max(0, leg.arrivalCharge));
-                const barColor = chargePct >= 50 ? '#22c55e' : chargePct >= 25 ? '#f59e0b' : '#ef4444';
+                const barColor = chargePct >= 50 ? '#22c55e' : chargePct >= 25 ? '#5c5e62' : '#ef4444';
                 return (
                   <div key={idx} style={{ animation: `legIn .5s ease ${idx * 0.12}s both` }}>
 

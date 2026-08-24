@@ -98,7 +98,7 @@ function WelcomeEmail({ isMobile }: { isMobile: boolean }) {
         <p style={{ fontSize: '14px', color: '#5c5e62', lineHeight: 1.65, marginBottom: '8px' }}>
           Your account is ready. You can now configure your vehicle, track your order, manage charging, and access your software updates — all in one place.
         </p>
-        <EmailBtn label="Go to My Tesla" color="#3e6ae1" />
+        <EmailBtn label="Go to My Tesla" color="#171a20" />
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '12px', marginTop: '28px' }}>
           {[{ icon: '🚗', title: 'Configure', desc: 'Build your Tesla' }, { icon: '⚡', title: 'Charging', desc: 'Find Superchargers' }, { icon: '📱', title: 'App', desc: 'Download the app' }].map(x => (
             <div key={x.title} style={{ background: '#f8f8f8', borderRadius: '10px', padding: '14px 10px', textAlign: 'center' }}>
@@ -111,7 +111,7 @@ function WelcomeEmail({ isMobile }: { isMobile: boolean }) {
       </div>
       <div style={{ padding: '24px 32px', background: '#171a20', margin: '24px 0 0' }}>
         <div style={{ fontSize: '13px', color: 'rgba(255,255,255,.6)', textAlign: 'center' }}>
-          Questions? Visit <span style={{ color: '#3e6ae1' }}>tesla.com/support</span> or call 1-877-798-3752
+          Questions? Visit <span style={{ color: '#171a20' }}>tesla.com/support</span> or call 1-877-798-3752
         </div>
       </div>
       <EmailFooter />
@@ -122,8 +122,8 @@ function WelcomeEmail({ isMobile }: { isMobile: boolean }) {
 /* ── 2. Newsletter ── */
 function NewsletterEmail({ isMobile }: { isMobile: boolean }) {
   const articles = [
-    { tag: 'SOFTWARE', color: '#3e6ae1', title: 'FSD v13.2 Arrives — Smarter City Driving', desc: 'Dramatically improved intersection handling, pedestrian awareness, and smoother highway transitions.', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=70' },
-    { tag: 'MODEL NEWS', color: '#e8223c', title: 'Model Y Gets New Interior Option', desc: 'A new all-black interior package is now available across all Model Y trims.', img: 'https://images.unsplash.com/photo-1617788138017-80ad40651399?w=400&q=70' },
+    { tag: 'SOFTWARE', color: '#171a20', title: 'FSD v13.2 Arrives — Smarter City Driving', desc: 'Dramatically improved intersection handling, pedestrian awareness, and smoother highway transitions.', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=70' },
+    { tag: 'MODEL NEWS', color: '#171a20', title: 'Model Y Gets New Interior Option', desc: 'A new all-black interior package is now available across all Model Y trims.', img: 'https://images.unsplash.com/photo-1617788138017-80ad40651399?w=400&q=70' },
     { tag: 'ENERGY', color: '#27ae60', title: 'Powerwall 3 Now Ships to 12 New States', desc: 'Home energy storage is expanding. Whole-home backup with integrated solar inverter.', img: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=400&q=70' },
   ];
   return (
@@ -190,7 +190,7 @@ function PurchaseEmail({ isMobile }: { isMobile: boolean }) {
             { n: '3', t: 'Schedule delivery', d: 'We\'ll confirm your delivery date soon' },
           ].map(x => (
             <div key={x.n} style={{ display: 'flex', gap: '12px', marginBottom: '12px', alignItems: 'flex-start' }}>
-              <div style={{ width: '24px', height: '24px', borderRadius: '50%', background: '#3e6ae1', color: '#fff', fontSize: '12px', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{x.n}</div>
+              <div style={{ width: '24px', height: '24px', borderRadius: '50%', background: '#171a20', color: '#fff', fontSize: '12px', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{x.n}</div>
               <div>
                 <div style={{ fontSize: '13px', fontWeight: 600, color: '#171a20' }}>{x.t}</div>
                 <div style={{ fontSize: '12px', color: '#888', marginTop: '2px' }}>{x.d}</div>
@@ -198,7 +198,7 @@ function PurchaseEmail({ isMobile }: { isMobile: boolean }) {
             </div>
           ))}
         </div>
-        <EmailBtn label="Manage My Order" color="#3e6ae1" />
+        <EmailBtn label="Manage My Order" color="#171a20" />
       </div>
       <EmailFooter />
     </EmailShell>
@@ -225,10 +225,10 @@ function CartEmail({ isMobile }: { isMobile: boolean }) {
             </div>
           ))}
         </div>
-        <div style={{ background: 'rgba(232,34,60,.06)', border: '1px solid rgba(232,34,60,.2)', borderRadius: '8px', padding: '12px', marginBottom: '16px', fontSize: '13px', color: '#e8223c', fontWeight: 500 }}>
+        <div style={{ background: 'rgba(232,34,60,.06)', border: '1px solid rgba(232,34,60,.2)', borderRadius: '8px', padding: '12px', marginBottom: '16px', fontSize: '13px', color: '#171a20', fontWeight: 500 }}>
           ⏰ Your saved pricing expires in 5 days
         </div>
-        <EmailBtn label="Continue Building →" color="#e8223c" />
+        <EmailBtn label="Continue Building →" color="#171a20" />
         <div style={{ marginTop: '16px', fontSize: '12px', color: '#aaa' }}>
           Not interested? <span style={{ textDecoration: 'underline', cursor: 'pointer' }}>Clear my cart</span>
         </div>
@@ -310,17 +310,17 @@ function WeeklyEmail({ isMobile }: { isMobile: boolean }) {
                 <span>{c.l}</span><span>{c.v}</span>
               </div>
               <div style={{ height: '4px', background: 'rgba(255,255,255,.15)', borderRadius: '2px' }}>
-                <div style={{ height: '100%', background: '#3e6ae1', borderRadius: '2px', width: `${c.pct}%` }} />
+                <div style={{ height: '100%', background: '#171a20', borderRadius: '2px', width: `${c.pct}%` }} />
               </div>
             </div>
           ))}
         </div>
         {/* Feature spotlight */}
         <div style={{ border: '1px solid #eee', borderRadius: '10px', padding: '16px', marginBottom: '12px' }}>
-          <div style={{ fontSize: '10px', fontWeight: 700, color: '#3e6ae1', letterSpacing: '0.1em', marginBottom: '6px' }}>FEATURE SPOTLIGHT</div>
+          <div style={{ fontSize: '10px', fontWeight: 700, color: '#171a20', letterSpacing: '0.1em', marginBottom: '6px' }}>FEATURE SPOTLIGHT</div>
           <div style={{ fontSize: '14px', fontWeight: 700, color: '#171a20', marginBottom: '5px' }}>Did you try Sentry Mode this week?</div>
           <div style={{ fontSize: '12px', color: '#888', lineHeight: 1.55 }}>Sentry Mode recorded 3 events near your vehicle. Review recordings in the Tesla app.</div>
-          <div style={{ marginTop: '10px', fontSize: '12px', fontWeight: 600, color: '#3e6ae1', cursor: 'pointer' }}>View in App →</div>
+          <div style={{ marginTop: '10px', fontSize: '12px', fontWeight: 600, color: '#171a20', cursor: 'pointer' }}>View in App →</div>
         </div>
       </div>
       <EmailFooter />
@@ -385,7 +385,7 @@ export default function NewsletterPage() {
         @keyframes spin { to{transform:rotate(360deg)} }
         @keyframes checkPop { 0%{transform:scale(0);opacity:0} 70%{transform:scale(1.2)} 100%{transform:scale(1);opacity:1} }
         .nl-input { background:rgba(255,255,255,.06); border:1.5px solid rgba(255,255,255,.12); color:#fff; font-family:inherit; }
-        .nl-input:focus { outline:none; border-color:#3e6ae1; box-shadow:0 0 0 3px rgba(62,106,225,.2); }
+        .nl-input:focus { outline:none; border-color:#171a20; box-shadow:0 0 0 3px rgba(62,106,225,.2); }
         .pref-card:hover { border-color:rgba(62,106,225,.5)!important; background:rgba(62,106,225,.08)!important; }
         .etype-btn:hover { background:rgba(255,255,255,.08)!important; }
         @media(max-width:900px){
@@ -407,11 +407,11 @@ export default function NewsletterPage() {
         <div style={{ position: 'relative', zIndex: 1 }}>
           <div style={{ display:'inline-flex', alignItems:'center', gap:'8px', padding:'6px 16px', borderRadius:'24px', background:'rgba(62,106,225,.15)', border:'1px solid rgba(62,106,225,.3)', marginBottom:'24px' }}>
             <span>📬</span>
-            <span style={{ fontSize:'12px', fontWeight:600, color:'#3e6ae1', letterSpacing:'0.08em', textTransform:'uppercase' }}>Tesla Communications</span>
+            <span style={{ fontSize:'12px', fontWeight:600, color:'#171a20', letterSpacing:'0.08em', textTransform:'uppercase' }}>Tesla Communications</span>
           </div>
           <h1 className="nl-hero-title" style={{ fontSize:'54px', fontWeight:700, color:'#fff', letterSpacing:'-2px', lineHeight:1.05, marginBottom:'18px' }}>
             Stay in the{' '}
-            <span style={{ background:'linear-gradient(90deg,#3e6ae1,#7b9ff0)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>Fast Lane</span>
+            <span style={{ background:'linear-gradient(90deg,#171a20,#7b9ff0)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>Fast Lane</span>
           </h1>
           <p style={{ fontSize:'17px', color:'rgba(255,255,255,.45)', maxWidth:'460px', margin:'0 auto 40px', lineHeight:1.65 }}>
             Personalized Tesla updates — from software releases and new models to your weekly driving stats.
@@ -431,11 +431,11 @@ export default function NewsletterPage() {
             <button key={et.id} className="etype-btn" onClick={() => setActiveEmailType(et.id)} style={{
               padding:'14px 18px', border:'none', cursor:'pointer', fontFamily:'inherit',
               background: activeEmailType === et.id ? 'rgba(62,106,225,.12)' : 'transparent',
-              borderBottom: activeEmailType === et.id ? '2px solid #3e6ae1' : '2px solid transparent',
+              borderBottom: activeEmailType === et.id ? '2px solid #171a20' : '2px solid transparent',
               transition:'all .18s',
             }}>
               <div style={{ fontSize:'18px', marginBottom:'3px' }}>{et.icon}</div>
-              <div style={{ fontSize:'12px', fontWeight:600, color: activeEmailType === et.id ? '#3e6ae1' : 'rgba(255,255,255,.55)', whiteSpace:'nowrap' }}>{et.label}</div>
+              <div style={{ fontSize:'12px', fontWeight:600, color: activeEmailType === et.id ? '#171a20' : 'rgba(255,255,255,.55)', whiteSpace:'nowrap' }}>{et.label}</div>
               <div style={{ fontSize:'10px', color:'rgba(255,255,255,.3)', marginTop:'2px' }}>{et.freq}</div>
             </button>
           ))}
@@ -454,9 +454,9 @@ export default function NewsletterPage() {
               </div>
               <h2 style={{ fontSize:'26px', fontWeight:700, color:'#fff', marginBottom:'10px' }}>You're subscribed!</h2>
               <p style={{ fontSize:'15px', color:'rgba(255,255,255,.5)', lineHeight:1.6, marginBottom:'6px' }}>Welcome{name ? `, ${name}` : ''}! Your first email is on its way.</p>
-              <p style={{ fontSize:'13px', color:'rgba(255,255,255,.3)', marginBottom:'32px' }}>Sent to <span style={{ color:'#3e6ae1' }}>{email}</span></p>
+              <p style={{ fontSize:'13px', color:'rgba(255,255,255,.3)', marginBottom:'32px' }}>Sent to <span style={{ color:'#171a20' }}>{email}</span></p>
               <div style={{ display:'flex', gap:'12px', justifyContent:'center', flexWrap:'wrap' }}>
-                <button onClick={() => navigate('/')} style={{ padding:'12px 28px', borderRadius:'24px', background:'#3e6ae1', border:'none', cursor:'pointer', fontSize:'14px', fontWeight:700, color:'#fff' }}>Back to Home</button>
+                <button onClick={() => navigate('/')} style={{ padding:'12px 28px', borderRadius:'24px', background:'#171a20', border:'none', cursor:'pointer', fontSize:'14px', fontWeight:700, color:'#fff' }}>Back to Home</button>
                 <button onClick={() => setStatus('idle')} style={{ padding:'12px 28px', borderRadius:'24px', background:'rgba(255,255,255,.08)', border:'1px solid rgba(255,255,255,.15)', cursor:'pointer', fontSize:'14px', fontWeight:600, color:'rgba(255,255,255,.7)' }}>Edit Preferences</button>
               </div>
             </div>
@@ -481,10 +481,10 @@ export default function NewsletterPage() {
 
               {/* Email */}
               <div style={{ marginBottom:'24px' }}>
-                <label style={{ display:'block', fontSize:'11px', fontWeight:600, color:'rgba(255,255,255,.45)', letterSpacing:'0.08em', textTransform:'uppercase', marginBottom:'7px' }}>Email <span style={{ color:'#e8223c' }}>*</span></label>
+                <label style={{ display:'block', fontSize:'11px', fontWeight:600, color:'rgba(255,255,255,.45)', letterSpacing:'0.08em', textTransform:'uppercase', marginBottom:'7px' }}>Email <span style={{ color:'#171a20' }}>*</span></label>
                 <input className="nl-input" type="email" value={email} onChange={e => { setEmail(e.target.value); setErrorMsg(''); }} placeholder="you@example.com" required
-                  style={{ width:'100%', padding:'13px 16px', borderRadius:'10px', fontSize:'15px', borderColor: errorMsg ? '#e8223c' : undefined, transition:'border-color .2s, box-shadow .2s' }} />
-                {errorMsg && <p style={{ fontSize:'12px', color:'#e8223c', marginTop:'6px' }}>{errorMsg}</p>}
+                  style={{ width:'100%', padding:'13px 16px', borderRadius:'10px', fontSize:'15px', borderColor: errorMsg ? '#171a20' : undefined, transition:'border-color .2s, box-shadow .2s' }} />
+                {errorMsg && <p style={{ fontSize:'12px', color:'#171a20', marginTop:'6px' }}>{errorMsg}</p>}
               </div>
 
               {/* Preferences */}
@@ -500,7 +500,7 @@ export default function NewsletterPage() {
                         border: `1.5px solid ${on ? 'rgba(62,106,225,.5)' : 'rgba(255,255,255,.1)'}`,
                         transition:'all .18s', display:'flex', alignItems:'center', gap:'8px',
                       }}>
-                        <div style={{ width:'16px', height:'16px', borderRadius:'3px', flexShrink:0, background: on ? '#3e6ae1' : 'rgba(255,255,255,.1)', border:`1.5px solid ${on ? '#3e6ae1' : 'rgba(255,255,255,.2)'}`, display:'flex', alignItems:'center', justifyContent:'center', transition:'all .18s' }}>
+                        <div style={{ width:'16px', height:'16px', borderRadius:'3px', flexShrink:0, background: on ? '#171a20' : 'rgba(255,255,255,.1)', border:`1.5px solid ${on ? '#171a20' : 'rgba(255,255,255,.2)'}`, display:'flex', alignItems:'center', justifyContent:'center', transition:'all .18s' }}>
                           {on && <svg width="10" height="10" viewBox="0 0 24 24" fill="#fff"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>}
                         </div>
                         <div>
@@ -516,7 +516,7 @@ export default function NewsletterPage() {
 
               <button type="submit" disabled={status === 'loading'} style={{
                 width:'100%', padding:'15px', borderRadius:'12px',
-                background: status === 'loading' ? 'rgba(62,106,225,.6)' : '#3e6ae1',
+                background: status === 'loading' ? 'rgba(62,106,225,.6)' : '#171a20',
                 border:'none', cursor: status === 'loading' ? 'default' : 'pointer',
                 fontSize:'15px', fontWeight:700, color:'#fff', fontFamily:'inherit',
                 display:'flex', alignItems:'center', justifyContent:'center', gap:'10px',
@@ -530,7 +530,7 @@ export default function NewsletterPage() {
                   : alreadySubscribed ? 'Update Preferences' : "Subscribe — It's Free"}
               </button>
               <p style={{ fontSize:'11px', color:'rgba(255,255,255,.22)', textAlign:'center', marginTop:'14px', lineHeight:1.6 }}>
-                By subscribing you agree to Tesla's <span style={{ color:'#3e6ae1', cursor:'pointer' }}>Privacy Policy</span>. Unsubscribe at any time.
+                By subscribing you agree to Tesla's <span style={{ color:'#171a20', cursor:'pointer' }}>Privacy Policy</span>. Unsubscribe at any time.
               </p>
             </form>
           )}

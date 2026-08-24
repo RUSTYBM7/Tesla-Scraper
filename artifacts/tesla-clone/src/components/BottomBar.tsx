@@ -44,7 +44,7 @@ export default function BottomBar() {
         onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(0,0,0,0.07)'; (e.currentTarget as HTMLElement).style.borderColor = 'rgba(0,0,0,0.2)'; }}
         onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(0,0,0,0.03)'; (e.currentTarget as HTMLElement).style.borderColor = 'rgba(0,0,0,0.12)'; }}
       >
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#3e6ae1" strokeWidth="1.8" strokeLinecap="round">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#171a20" strokeWidth="1.8" strokeLinecap="round">
           <circle cx="12" cy="12" r="10" />
           <polyline points="12,6 12,12 16,14" />
         </svg>

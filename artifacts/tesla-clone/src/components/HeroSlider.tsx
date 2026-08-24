@@ -6,7 +6,7 @@ const BASE = import.meta.env.BASE_URL;
 interface Slide {
   id: string; title: string; subtitle: string;
   btnPrimary: string; btnSecondary: string;
-  btnPrimaryStyle: 'blue' | 'dark';
+  btnPrimaryStyle: 'dark' | 'dark';
   btnPrimaryRoute: string; btnSecondaryRoute: string;
   img: string; imgPos?: string; textLight: boolean;
 }
@@ -47,7 +47,7 @@ const slides: Slide[] = [
     title: 'Full Self-Driving',
     subtitle: 'Navigate city streets and highways — $99/mo',
     btnPrimary: 'Try FSD', btnSecondary: 'Learn More',
-    btnPrimaryStyle: 'blue',
+    btnPrimaryStyle: 'dark',
     btnPrimaryRoute: '/contact?subject=demo', btnSecondaryRoute: '/vehicles/model-3',
     img: `${BASE}fsd-highway.jpg`, imgPos: 'center 40%',
     textLight: true,
@@ -151,13 +151,13 @@ export default function HeroSlider() {
         <div style={{ display:'flex', gap:'12px', justifyContent:'center', flexWrap:'wrap' }}>
           <button onClick={() => navigate(slide.btnPrimaryRoute)} style={{
             padding:'13px 44px', borderRadius:'4px', fontSize:'14px', fontWeight:500,
-            background: slide.btnPrimaryStyle === 'blue' ? '#3e6ae1' : 'rgba(23,26,32,.84)',
+            background: slide.btnPrimaryStyle === 'blue' ? '#171a20' : 'rgba(23,26,32,.84)',
             color:'#fff', minWidth:'200px',
             backdropFilter:'blur(6px)', border:'none', cursor:'pointer',
             transition:'background .2s, transform .15s',
           }}
-            onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = slide.btnPrimaryStyle === 'blue' ? '#2d58cc' : '#171a20'; el.style.transform='scale(1.025)'; }}
-            onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = slide.btnPrimaryStyle === 'blue' ? '#3e6ae1' : 'rgba(23,26,32,.84)'; el.style.transform='scale(1)'; }}
+            onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = slide.btnPrimaryStyle === 'blue' ? '#171a20' : '#171a20'; el.style.transform='scale(1.025)'; }}
+            onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = slide.btnPrimaryStyle === 'blue' ? '#171a20' : 'rgba(23,26,32,.84)'; el.style.transform='scale(1)'; }}
           >{slide.btnPrimary}</button>
           <button onClick={() => navigate(slide.btnSecondaryRoute)} style={{
             padding:'13px 44px', borderRadius:'4px', fontSize:'14px', fontWeight:500,

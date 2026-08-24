@@ -269,7 +269,7 @@ function OrderModal({ summary, onClose }: { summary: Summary; onClose: () => voi
             <p style={{ fontSize: '14px', color: '#6e7180', marginBottom: '6px' }}>Thank you for your order of the <strong>{summary.vehicle}</strong>.</p>
             <p style={{ fontSize: '13px', color: '#9ca3af', marginBottom: '32px' }}>A confirmation will be sent to your email. A Teslaofficial.site advisor will be in touch shortly.</p>
             <div style={{ background: '#f8f9fa', borderRadius: '10px', padding: '16px', textAlign: 'left', fontSize: '13px', marginBottom: '28px' }}>
-              <div style={{ fontWeight: 700, color: '#171a20', marginBottom: '8px' }}>Order Reference: <span style={{ color: '#3e6ae1' }}>TO-{Math.random().toString(36).slice(2, 8).toUpperCase()}</span></div>
+              <div style={{ fontWeight: 700, color: '#171a20', marginBottom: '8px' }}>Order Reference: <span style={{ color: '#171a20' }}>TO-{Math.random().toString(36).slice(2, 8).toUpperCase()}</span></div>
               <div style={{ color: '#5c5e62' }}>{summary.trim} · {summary.color}</div>
               <div style={{ fontWeight: 600, color: '#171a20', marginTop: '8px' }}>{fmt(summary.total)}</div>
             </div>
@@ -318,7 +318,7 @@ export default function ConfiguratorPage() {
     return (
       <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
         <h1 style={{ fontSize: '28px', fontWeight: 600, marginBottom: '16px' }}>Vehicle not found</h1>
-        <button onClick={() => navigate('/')} style={{ color: '#3e6ae1', background: 'none', border: 'none', cursor: 'pointer', fontSize: '16px', fontFamily: 'inherit' }}>Back to Home</button>
+        <button onClick={() => navigate('/')} style={{ color: '#171a20', background: 'none', border: 'none', cursor: 'pointer', fontSize: '16px', fontFamily: 'inherit' }}>Back to Home</button>
       </div>
     );
   }
@@ -425,7 +425,7 @@ export default function ConfiguratorPage() {
                 <button key={c.name} className="opt-card" onClick={() => setColorIdx(i)} style={{ ...OPTION_BTN(i === colorIdx), padding: '14px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
                   <div style={{ width: '38px', height: '38px', borderRadius: '50%', background: c.hex, border: i === colorIdx ? '3px solid #171a20' : '2px solid #e0e0e0', transition: 'border .2s', boxShadow: '0 2px 6px rgba(0,0,0,.12)' }} />
                   <div style={{ fontSize: '11px', fontWeight: 500, color: i === colorIdx ? '#171a20' : '#5c5e62', textAlign: 'center', lineHeight: 1.3 }}>{c.name}</div>
-                  <div style={{ fontSize: '11px', color: c.price > 0 ? '#3e6ae1' : '#22c55e', fontWeight: 600 }}>{c.price > 0 ? `+${fmt(c.price)}` : 'Incl.'}</div>
+                  <div style={{ fontSize: '11px', color: c.price > 0 ? '#171a20' : '#22c55e', fontWeight: 600 }}>{c.price > 0 ? `+${fmt(c.price)}` : 'Incl.'}</div>
                 </button>
               ))}
             </div>
@@ -462,7 +462,7 @@ export default function ConfiguratorPage() {
                   <div style={{ height: '36px', borderRadius: '6px', background: `linear-gradient(135deg, ${it.hex1} 50%, ${it.hex2} 50%)`, marginBottom: '10px', border: '1px solid rgba(0,0,0,.1)' }} />
                   <div style={{ fontSize: '13px', fontWeight: 600, marginBottom: '2px' }}>{it.name}</div>
                   <div style={{ fontSize: '11px', color: i === interiorIdx ? 'rgba(255,255,255,.6)' : '#9ca3af', marginBottom: '6px' }}>{it.desc}</div>
-                  <div style={{ fontSize: '12px', fontWeight: 700, color: it.price > 0 ? (i === interiorIdx ? '#93c5fd' : '#3e6ae1') : (i === interiorIdx ? '#86efac' : '#22c55e') }}>
+                  <div style={{ fontSize: '12px', fontWeight: 700, color: it.price > 0 ? (i === interiorIdx ? '#93c5fd' : '#171a20') : (i === interiorIdx ? '#86efac' : '#22c55e') }}>
                     {it.price > 0 ? `+${fmt(it.price)}` : 'Included'}
                   </div>
                 </button>

@@ -24,11 +24,11 @@ const PRODUCTS: Product[] = [
   { id: 'cap', name: 'Frunk/Trunk Organizer', price: 65, category: 'Vehicle Accessories', desc: 'Collapsible organizer bag keeps groceries and gear tidy in your trunk or frunk.' },
   { id: 'wrap', name: 'Center Console Wrap — Model 3', price: 85, category: 'Vehicle Accessories', desc: 'Brushed aluminum or carbon fiber console wrap. Protect and personalize your interior.', colors: ['Brushed Aluminum', 'Carbon Fiber', 'Matte Black'] },
   { id: 'dcp', name: 'Destination Charging Connector', price: 290, category: 'Charging', desc: 'A 24-foot destination charging cable, ideal for guest lodging or workplace charging installations.' },
-  { id: 'jacket', name: 'Cyberquad Jacket', price: 125, originalPrice: 175, category: 'Lifestyle', desc: 'Water-resistant tech jacket with Tesla branding. Available in multiple sizes.', colors: ['Matte Black', 'Deep Blue'], badge: 'Sale', badgeColor: '#e8223c' },
+  { id: 'jacket', name: 'Cyberquad Jacket', price: 125, originalPrice: 175, category: 'Lifestyle', desc: 'Water-resistant tech jacket with Tesla branding. Available in multiple sizes.', colors: ['Matte Black', 'Deep Blue'], badge: 'Sale', badgeColor: '#171a20' },
   { id: 'tee', name: 'Tesla Logo Tee', price: 35, category: 'Lifestyle', desc: '100% organic cotton tee with embroidered Tesla T logo. Slim fit.', colors: ['Black', 'White', 'Grey', 'Navy'] },
   { id: 'cap2', name: 'Tesla Cap', price: 30, category: 'Lifestyle', desc: 'Structured six-panel cap with Tesla logo embroidered on the front.', colors: ['Black', 'White'] },
   { id: 'bag', name: 'Tesla Canvas Tote', price: 25, category: 'Lifestyle', desc: 'Heavy-duty canvas tote with "Tesla" wordmark. Ideal for everyday use.' },
-  { id: 'pw2', name: 'Powerwall Home Energy Kit', price: 9200, category: 'Energy', desc: 'Complete home battery backup system. 13.5 kWh capacity, Wi-Fi enabled.', badge: 'Most Popular', badgeColor: '#3e6ae1' },
+  { id: 'pw2', name: 'Powerwall Home Energy Kit', price: 9200, category: 'Energy', desc: 'Complete home battery backup system. 13.5 kWh capacity, Wi-Fi enabled.', badge: 'Most Popular', badgeColor: '#171a20' },
   { id: 'sol', name: 'Solar Roof Consultation', price: 0, category: 'Energy', desc: 'Book a free consultation with a Tesla Energy Advisor to design your Solar Roof system.' },
 ];
 

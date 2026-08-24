@@ -12,7 +12,7 @@ function useIsMobile() {
 const OFFERS = [
   {
     model: 'Model 3', slug: 'model-3', img: `${BASE}dl-hero-model-3.jpg`,
-    badge: 'Most Popular', badgeColor: '#3e6ae1',
+    badge: 'Most Popular', badgeColor: '#171a20',
     headline: '$7,500 Federal Tax Credit Available',
     subline: 'Starting at $32,740 after credit',
     details: ['Up to $7,500 federal tax credit', '0.99% APR financing available', 'Free Supercharging — 1,500 miles', 'Delivery in 2–4 weeks'],
@@ -28,7 +28,7 @@ const OFFERS = [
   },
   {
     model: 'Model S', slug: 'model-s', img: `${BASE}dl-hero-model-s.jpg`,
-    badge: 'Limited Time', badgeColor: '#e8223c',
+    badge: 'Limited Time', badgeColor: '#171a20',
     headline: 'Free Full Self-Driving Included',
     subline: '$8,000 FSD value at no charge',
     details: ['Full Self-Driving (Supervised) included ($8,000 value)', 'Enhanced Autopilot capability', 'Premium connectivity included', '6-month free Supercharging'],
@@ -36,7 +36,7 @@ const OFFERS = [
   },
   {
     model: 'Model X', slug: 'model-x', img: `${BASE}dl-hero-model-x.jpg`,
-    badge: 'Offer Ends Soon', badgeColor: '#f59e0b',
+    badge: 'Offer Ends Soon', badgeColor: '#5c5e62',
     headline: '$3,500 Savings on Model X',
     subline: 'Starting at $76,490 for a limited time',
     details: ['$3,500 off MSRP', 'Premium audio upgrade included', 'Tow package at no cost', 'Priority delivery scheduling'],
@@ -44,7 +44,7 @@ const OFFERS = [
   },
   {
     model: 'Cybertruck', slug: 'cybertruck', img: `${BASE}Cybertruck-Main-Hero-Desktop.jpg`,
-    badge: 'Now Available', badgeColor: '#8b5cf6',
+    badge: 'Now Available', badgeColor: '#5c5e62',
     headline: 'Cybertruck In-Stock Deliveries',
     subline: 'No longer on waiting list — order today',
     details: ['Immediate delivery available', 'Up to $7,500 federal tax credit', 'Commercial use tax benefits', 'Cyberbeast trim in stock'],

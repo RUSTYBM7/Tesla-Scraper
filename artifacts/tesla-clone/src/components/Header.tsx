@@ -295,9 +295,9 @@ export default function Header() {
             )}
             <div style={{ minWidth: '180px', display: 'flex', flexDirection: 'column', gap: '8px', paddingTop: '4px' }}>
               {item.megaMenu.links.map(link => (
-                <button key={link.label} onClick={() => goRoute(link.route)} style={{ fontSize: '13px', color: link.route.includes('compare') || link.route === '/gallery' ? '#3e6ae1' : '#171a20', padding: '2px 0', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', fontFamily: 'inherit', fontWeight: link.route.includes('compare') || link.route === '/gallery' ? 600 : 400, transition: 'color .15s' }}
-                  onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = '#3e6ae1'}
-                  onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = link.route.includes('compare') || link.route === '/gallery' ? '#3e6ae1' : '#171a20'}
+                <button key={link.label} onClick={() => goRoute(link.route)} style={{ fontSize: '13px', color: link.route.includes('compare') || link.route === '/gallery' ? '#171a20' : '#171a20', padding: '2px 0', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', fontFamily: 'inherit', fontWeight: link.route.includes('compare') || link.route === '/gallery' ? 600 : 400, transition: 'color .15s' }}
+                  onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = '#171a20'}
+                  onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = link.route.includes('compare') || link.route === '/gallery' ? '#171a20' : '#171a20'}
                 >{link.label}</button>
               ))}
             </div>
@@ -356,7 +356,7 @@ export default function Header() {
                       )}
                       {/* Text links */}
                       {item.megaMenu.links.map(link => (
-                        <button key={link.label} onClick={() => goRoute(link.route)} style={{ display: 'block', width: '100%', padding: '11px 24px 11px 32px', fontSize: '14px', fontWeight: link.route.includes('compare') || link.route === '/gallery' ? 600 : 400, color: link.route.includes('compare') || link.route === '/gallery' ? '#3e6ae1' : '#5c5e62', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', fontFamily: 'inherit', borderBottom: '1px solid rgba(0,0,0,.04)' }}>
+                        <button key={link.label} onClick={() => goRoute(link.route)} style={{ display: 'block', width: '100%', padding: '11px 24px 11px 32px', fontSize: '14px', fontWeight: link.route.includes('compare') || link.route === '/gallery' ? 600 : 400, color: link.route.includes('compare') || link.route === '/gallery' ? '#171a20' : '#5c5e62', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', fontFamily: 'inherit', borderBottom: '1px solid rgba(0,0,0,.04)' }}>
                           {link.label}
                         </button>
                       ))}
