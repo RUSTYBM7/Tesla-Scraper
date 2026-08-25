@@ -76,10 +76,13 @@ export default function ContactPage() {
     setErrors({});
     setStatus('loading');
     try {
-      await fetch(`${BASE}api/contact`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(form) });
-    } catch { /* optimistic */ }
-    await new Promise(r => setTimeout(r, 1200));
-    setStatus('success');
+      const res = await fetch('/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(form) });
+      if (!res.ok) throw new Error('Request failed');
+      setStatus('success');
+    } catch {
+      setStatus('idle');
+      setErrors({ message: 'Unable to send. Please try again.' });
+    }
   }
 
   function set(k: string, v: string) { setForm(f => ({ ...f, [k]: v })); setErrors(e => ({ ...e, [k]: '' })); }

@@ -156,20 +156,12 @@ export default function EnergyPage() {
   const isMobile = useIsMobile();
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [activeSpec, setActiveSpec] = useState<boolean>(false);
-  const data = product ? PRODUCTS[product] : null;
+  const data = PRODUCTS[product || ''] || PRODUCTS['powerwall'] || Object.values(PRODUCTS)[0];
 
   useEffect(() => { window.scrollTo(0, 0); }, [product]);
 
-  if (!data) {
-    return (
-      <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '16px' }}>
-        <h1 style={{ fontSize: '28px', fontWeight: 700 }}>Product not found</h1>
-        <button onClick={() => navigate('/')} style={{ color: '#171a20', background: 'none', border: 'none', cursor: 'pointer', fontSize: '16px', fontFamily: 'inherit' }}>Back to Home</button>
-      </div>
-    );
-  }
-
   return (
+
     <div style={{ fontFamily: 'Inter, -apple-system, sans-serif' }}>
       <style>{`
         @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}

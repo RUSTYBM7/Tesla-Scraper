@@ -17,6 +17,7 @@ import CareersPage from './pages/CareersPage';
 import ShopPage from './pages/ShopPage';
 import InsurancePage from './pages/InsurancePage';
 import TripPlannerPage from './pages/TripPlannerPage';
+import NewsletterPage from './pages/NewsletterPage';
 import NotFound from './pages/not-found';
 
 export default function App() {
@@ -41,6 +42,8 @@ export default function App() {
           <Route path="/shop" element={<ShopPage />} />
           <Route path="/insurance" element={<InsurancePage />} />
           <Route path="/trip-planner" element={<TripPlannerPage />} />
+          <Route path="/newsletter" element={<NewsletterPage />} />
+          <Route path="/energy" element={<EnergyPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <BottomBar />
