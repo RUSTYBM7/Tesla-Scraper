@@ -18,6 +18,7 @@ import ShopPage from './pages/ShopPage';
 import InsurancePage from './pages/InsurancePage';
 import TripPlannerPage from './pages/TripPlannerPage';
 import NewsletterPage from './pages/NewsletterPage';
+import DemoDrivePage from './pages/DemoDrivePage';
 import NotFound from './pages/not-found';
 
 export default function App() {
@@ -43,6 +44,7 @@ export default function App() {
           <Route path="/insurance" element={<InsurancePage />} />
           <Route path="/trip-planner" element={<TripPlannerPage />} />
           <Route path="/newsletter" element={<NewsletterPage />} />
+          <Route path="/demo-drive" element={<DemoDrivePage />} />
           <Route path="/energy" element={<EnergyPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

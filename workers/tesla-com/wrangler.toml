@@ -1,0 +1,16 @@
+name = "tesla-com"
+main = "src/index.ts"
+compatibility_date = "2025-03-01"
+compatibility_flags = ["nodejs_compat"]
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+
+[[kv_namespaces]]
+binding = "TESLA_NEWSLETTER"
+id = "02d26564462249c5838734cd3ffd341b"
+
+[vars]
+ENVIRONMENT = "production"

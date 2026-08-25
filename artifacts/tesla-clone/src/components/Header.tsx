@@ -38,12 +38,10 @@ const navItems: NavItem[] = [
       ],
       links: [
         { label: 'Current Offers',  route: '/offers' },
-        { label: 'Demo Drive',      route: '/contact?subject=demo' },
+        { label: 'Demo Drive',      route: '/demo-drive' },
         { label: 'Trade-in',        route: '/contact?subject=tradein' },
         { label: 'Pre-Owned',       route: '/pre-owned' },
         { label: 'Trip Planner',    route: '/trip-planner' },
-        { label: 'Features',        route: '/compare' },
-        { label: 'Help Me Choose',  route: '/compare' },
         { label: 'Compare Models',  route: '/compare' },
         { label: 'Safety',          route: '/safety' },
       ],
@@ -88,7 +86,7 @@ const navItems: NavItem[] = [
     megaMenu: {
       featured: [],
       links: [
-        { label: 'Demo Drive',       route: '/contact?subject=demo' },
+        { label: 'Demo Drive',       route: '/demo-drive' },
         { label: 'Insurance',        route: '/insurance' },
         { label: 'Current Offers',   route: '/offers' },
         { label: 'Gallery',          route: '/gallery' },
