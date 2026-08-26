@@ -171,7 +171,7 @@ export default function TripPlannerPage() {
   const totalTime = result ? result.totalDrive + result.totalCharge : 0;
 
   return (
-    <div style={{ fontFamily: 'Inter, -apple-system, sans-serif' }}>
+    <div style={{ fontFamily: 'Inter, -apple-system, sans-serif' , paddingBottom: 'calc(var(--bottom-bar-height, 64px) + 24px)'}}>
       <style>{`
         @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
         @keyframes spin{to{transform:rotate(360deg)}}

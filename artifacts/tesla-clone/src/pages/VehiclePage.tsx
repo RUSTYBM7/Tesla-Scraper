@@ -220,7 +220,7 @@ export default function VehiclePage() {
   }
 
   return (
-    <div style={{ fontFamily: 'Inter, -apple-system, sans-serif', background: '#f8f9fa' }}>
+    <div style={{ fontFamily: 'Inter, -apple-system, sans-serif', background: '#f8f9fa', paddingBottom: 'calc(var(--bottom-bar-height, 64px) + 24px)' }}>
       <style>{`.trim-scroll::-webkit-scrollbar{display:none}`}</style>
 
       <HeroSection img={vehicle.heroImg} pos={vehicle.heroPos} filter={activeColor.filter} light={vehicle.light} label={vehicle.label} tagline={vehicle.tagline} />
@@ -323,7 +323,7 @@ export default function VehiclePage() {
             onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = '#2a2d35'; (e.currentTarget as HTMLElement).style.transform = 'scale(1.01)'; }}
             onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = '#171a20'; (e.currentTarget as HTMLElement).style.transform = 'scale(1)'; }}
           >Configure & Order</button>
-          <button onClick={() => navigate(`/contact?subject=demo&vehicle=${slug}`)} style={{ flex: 1, minWidth: isMobile ? '100%' : undefined, padding: '17px', borderRadius: '8px', fontSize: '15px', fontWeight: 700, background: '#fff', color: '#171a20', cursor: 'pointer', border: '2px solid #e0e0e0', fontFamily: 'inherit', transition: 'background .2s, border-color .2s, transform .15s' }}
+          <button onClick={() => navigate(`/demo-drive`)} style={{ flex: 1, minWidth: isMobile ? '100%' : undefined, padding: '17px', borderRadius: '8px', fontSize: '15px', fontWeight: 700, background: '#fff', color: '#171a20', cursor: 'pointer', border: '2px solid #e0e0e0', fontFamily: 'inherit', transition: 'background .2s, border-color .2s, transform .15s' }}
             onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = '#f4f4f4'; (e.currentTarget as HTMLElement).style.transform = 'scale(1.01)'; }}
             onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = '#fff'; (e.currentTarget as HTMLElement).style.transform = 'scale(1)'; }}
           >Schedule a Demo Drive</button>

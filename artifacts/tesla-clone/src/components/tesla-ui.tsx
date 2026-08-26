@@ -83,7 +83,7 @@ export function TeslaBadge({ children, dark = false }: { children: ReactNode; da
 }
 
 export function PageShell({ children, style }: { children: ReactNode; style?: CSSProperties }) {
-  return <main style={{ paddingTop: 'var(--header-height, 56px)', minHeight: '100vh', ...style }}>{children}</main>;
+  return <main style={{ paddingTop: 'var(--header-height, 56px)', paddingBottom: 'calc(var(--bottom-bar-height, 64px) + env(safe-area-inset-bottom, 0px) + 16px)', minHeight: '100vh', ...style }}>{children}</main>;
 }
 
 export const inputStyle: CSSProperties = {

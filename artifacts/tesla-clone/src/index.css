@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; border: none; outline: none; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-:root { --header-height: 56px; --tesla-dark: #171a20; --tesla-gray: #5c5e62; --tesla-gray-light: #8e8e8e; --tesla-bg: #f4f4f4; --tesla-border: #e8e8e8; --tesla-red: #e82127; }
+:root { --header-height: 56px; --bottom-bar-height: 64px; --tesla-dark: #171a20; --tesla-gray: #5c5e62; --tesla-gray-light: #8e8e8e; --tesla-bg: #f4f4f4; --tesla-border: #e8e8e8; --tesla-red: #e82127; }
 html { scroll-behavior: smooth; font-size: 16px; }
 body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: var(--tesla-dark); background: #fff; overflow-x: hidden; }
 a { text-decoration: none; color: inherit; }
@@ -12,5 +12,12 @@ ul, ol { list-style: none; }
 ::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.2); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(0,0,0,0.35); }
 
-/* Space for fixed BottomBar */
-main { padding-bottom: 72px; }
+/* Space for fixed BottomBar + safe area */
+main, footer {
+  padding-bottom: calc(var(--bottom-bar-height, 64px) + env(safe-area-inset-bottom, 0px) + 16px);
+}
+
+/* Ensure fixed bottom bar never permanently covers content */
+#root {
+  padding-bottom: 0;
+}
