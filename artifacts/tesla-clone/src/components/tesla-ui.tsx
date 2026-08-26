@@ -50,14 +50,16 @@ export function TeslaButton({
   );
 }
 
-export function TeslaHero({ title, subtitle, eyebrow, children, bg = 'dark', minHeight = '420px', isMobile }: {
+export function TeslaHero({ title, subtitle, eyebrow, children, bg = 'dark', minHeight = '420px', isMobile, backgroundImage }: {
   title: ReactNode; subtitle?: ReactNode; eyebrow?: string; children?: ReactNode;
-  bg?: 'dark' | 'light' | 'image'; minHeight?: string; isMobile?: boolean;
+  bg?: 'dark' | 'light' | 'image'; minHeight?: string; isMobile?: boolean; backgroundImage?: string;
 }) {
-  const isDark = bg === 'dark' || bg === 'image';
+  const isDark = bg === 'dark' || bg === 'image' || Boolean(backgroundImage);
   return (
     <section style={{
-      background: bg === 'dark' ? T.dark : bg === 'light' ? T.white : T.dark,
+      background: backgroundImage
+        ? `linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.35) 50%,rgba(0,0,0,.7) 100%), url(${backgroundImage}) center/cover no-repeat`
+        : bg === 'dark' ? T.dark : bg === 'light' ? T.white : T.dark,
       color: isDark ? T.white : T.dark,
       padding: isMobile ? '100px 24px 64px' : '140px 40px 80px',
       textAlign: 'center', minHeight, display: 'flex', flexDirection: 'column',

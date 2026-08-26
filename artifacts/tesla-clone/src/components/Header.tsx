@@ -39,11 +39,12 @@ const navItems: NavItem[] = [
       links: [
         { label: 'Current Offers',  route: '/offers' },
         { label: 'Demo Drive',      route: '/demo-drive' },
-        { label: 'Trade-in',        route: '/contact?subject=tradein' },
+        { label: 'Trade-in',        route: '/trade-in' },
         { label: 'Pre-Owned',       route: '/pre-owned' },
         { label: 'Trip Planner',    route: '/trip-planner' },
         { label: 'Compare Models',  route: '/compare' },
         { label: 'Safety',          route: '/safety' },
+        { label: 'Full Self-Driving', route: '/fsd' },
       ],
     },
   },
@@ -61,8 +62,8 @@ const navItems: NavItem[] = [
         { label: 'Why Solar',               route: '/energy/solar-panels' },
         { label: 'Incentives',              route: '/offers' },
         { label: 'Support',                 route: '/contact?subject=service' },
-        { label: 'Commercial',              route: '/energy/megapack' },
-        { label: 'Utilities',               route: '/energy/megapack' },
+        { label: 'Commercial',              route: '/utilities' },
+        { label: 'Utilities',               route: '/utilities' },
       ],
     },
   },
@@ -77,7 +78,7 @@ const navItems: NavItem[] = [
         { label: 'Help Me Charge',      route: '/charging' },
         { label: 'Charging Calculator', route: '/charging' },
         { label: 'Charging With NACS',  route: '/charging' },
-        { label: 'Host a Supercharger', route: '/contact?subject=charging' },
+        { label: 'Host a Supercharger', route: '/host-charging' },
       ],
     },
   },
@@ -91,10 +92,10 @@ const navItems: NavItem[] = [
         { label: 'Current Offers',   route: '/offers' },
         { label: 'Gallery',          route: '/gallery' },
         { label: 'Video Guides',     route: '/gallery' },
-        { label: 'Customer Stories', route: '/gallery' },
-        { label: 'Events',           route: '/contact?subject=events' },
+        { label: 'Customer Stories', route: '/stories' },
+        { label: 'Events',           route: '/events' },
         { label: 'Safety',           route: '/safety' },
-        { label: 'Find Us',          route: '/contact' },
+        { label: 'Find Us',          route: '/locations' },
         { label: 'About',            route: '/about' },
         { label: 'Careers',          route: '/careers' },
       ],
@@ -221,9 +222,9 @@ export default function Header() {
         {!isMobile && (
           <div style={{ display: 'flex', alignItems: 'center', gap: '2px' }}>
             {[
-              { label: 'Help', d: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z', route: '/contact?subject=general' },
+              { label: 'Help', d: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z', route: '/support' },
               { label: 'Globe', d: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z', route: '/contact?subject=general' },
-              { label: 'Account', d: 'M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z', route: '/contact?subject=general' },
+              { label: 'Account', d: 'M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z', route: '/account' },
             ].map(({ label, d, route }) => (
               <button key={label} title={label} onClick={() => goRoute(route)} style={{ width: '36px', height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '50%', background: 'transparent', border: 'none', cursor: 'pointer', transition: 'background .18s' }}
                 onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = isLight ? 'rgba(255,255,255,.14)' : 'rgba(0,0,0,.06)'}

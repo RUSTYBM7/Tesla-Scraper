@@ -4,15 +4,16 @@ export default function Footer() {
   const navigate = useNavigate();
   const links = [
     { label: 'Educational clone · Not affiliated with Tesla, Inc.', action: () => navigate('/') },
-    { label: 'Privacy & Legal', action: () => navigate('/contact?subject=general') },
-    { label: 'Vehicle Recalls', action: () => navigate('/contact?subject=service') },
+    { label: 'Privacy & Legal', action: () => navigate('/legal') },
+    { label: 'Vehicle Recalls', action: () => navigate('/recalls') },
+    { label: 'Support', action: () => navigate('/support') },
     { label: 'Contact', action: () => navigate('/contact') },
-    { label: 'Gallery', action: () => navigate('/gallery') },
-    { label: 'Compare Models', action: () => navigate('/compare') },
+    { label: 'Locations', action: () => navigate('/locations') },
+    { label: 'Careers', action: () => navigate('/careers') },
     { label: 'Newsletter', action: () => navigate('/newsletter') },
   ];
   return (
-    <footer style={{ background: '#fff', padding: '16px 48px 90px', borderTop: '1px solid #e5e5e5', display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: '4px 20px' }}>
+    <footer style={{ background: '#fff', padding: '16px 48px 24px', borderTop: '1px solid #e5e5e5', display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: '4px 20px' }}>
       {links.map(link => (
         <button key={link.label} onClick={link.action} style={{ fontSize: '12px', color: '#5c5e62', transition: 'color 0.15s', padding: '4px 2px', background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'inherit' }}
           onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = '#171a20'}

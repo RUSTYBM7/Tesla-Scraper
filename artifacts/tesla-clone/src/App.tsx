@@ -3,6 +3,7 @@ import Header from './components/Header';
 import BottomBar from './components/BottomBar';
 import HomePage from './pages/HomePage';
 import VehiclePage from './pages/VehiclePage';
+import VehiclesIndexPage from './pages/VehiclesIndexPage';
 import ComparePage from './pages/ComparePage';
 import GalleryPage from './pages/GalleryPage';
 import ContactPage from './pages/ContactPage';
@@ -19,6 +20,18 @@ import InsurancePage from './pages/InsurancePage';
 import TripPlannerPage from './pages/TripPlannerPage';
 import NewsletterPage from './pages/NewsletterPage';
 import DemoDrivePage from './pages/DemoDrivePage';
+import TradeInPage from './pages/TradeInPage';
+import LegalPage from './pages/LegalPage';
+import RecallsPage from './pages/RecallsPage';
+import SupportPage from './pages/SupportPage';
+import AccountPage from './pages/AccountPage';
+import FsdPage from './pages/FsdPage';
+import LocationsPage from './pages/LocationsPage';
+import EventsPage from './pages/EventsPage';
+import StoriesPage from './pages/StoriesPage';
+import RoadsidePage from './pages/RoadsidePage';
+import HostChargingPage from './pages/HostChargingPage';
+import UtilitiesPage from './pages/UtilitiesPage';
 import NotFound from './pages/not-found';
 
 export default function App() {
@@ -28,13 +41,16 @@ export default function App() {
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/vehicles" element={<VehiclesIndexPage />} />
           <Route path="/vehicles/:slug" element={<VehiclePage />} />
           <Route path="/compare" element={<ComparePage />} />
           <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/configure/:slug" element={<ConfiguratorPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/energy" element={<EnergyPage />} />
           <Route path="/energy/:product" element={<EnergyPage />} />
           <Route path="/charging" element={<ChargingPage />} />
+          <Route path="/host-charging" element={<HostChargingPage />} />
           <Route path="/safety" element={<SafetyPage />} />
           <Route path="/offers" element={<OffersPage />} />
           <Route path="/pre-owned" element={<PreOwnedPage />} />
@@ -45,7 +61,17 @@ export default function App() {
           <Route path="/trip-planner" element={<TripPlannerPage />} />
           <Route path="/newsletter" element={<NewsletterPage />} />
           <Route path="/demo-drive" element={<DemoDrivePage />} />
-          <Route path="/energy" element={<EnergyPage />} />
+          <Route path="/trade-in" element={<TradeInPage />} />
+          <Route path="/legal" element={<LegalPage />} />
+          <Route path="/recalls" element={<RecallsPage />} />
+          <Route path="/support" element={<SupportPage />} />
+          <Route path="/account" element={<AccountPage />} />
+          <Route path="/fsd" element={<FsdPage />} />
+          <Route path="/locations" element={<LocationsPage />} />
+          <Route path="/events" element={<EventsPage />} />
+          <Route path="/stories" element={<StoriesPage />} />
+          <Route path="/roadside" element={<RoadsidePage />} />
+          <Route path="/utilities" element={<UtilitiesPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <BottomBar />
