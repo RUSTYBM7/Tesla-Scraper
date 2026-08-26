@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const HIDDEN_PATHS = ['/configure/', '/contact', '/demo-drive', '/newsletter'];
@@ -6,12 +6,13 @@ const HIDDEN_PATHS = ['/configure/', '/contact', '/demo-drive', '/newsletter'];
 /**
  * Fixed bottom action bar — Ask a Question + Schedule a Drive.
  * Hides on form-heavy routes so it does not cover CTAs; respects safe-area.
+ * Scroll: hide on scroll down (past 80px), show on scroll up — lastY via ref (stable listener).
  */
 export default function BottomBar() {
   const navigate = useNavigate();
   const location = useLocation();
   const [visible, setVisible] = useState(true);
-  const [lastY, setLastY] = useState(0);
+  const lastYRef = useRef(0);
   const [isMobile, setIsMobile] = useState(
     () => typeof window !== 'undefined' && window.innerWidth < 640
   );
@@ -26,27 +27,32 @@ export default function BottomBar() {
     return () => window.removeEventListener('resize', onResize);
   }, []);
 
+  // Reset bar visible + scroll baseline on route change
   useEffect(() => {
     setVisible(true);
+    lastYRef.current = typeof window !== 'undefined' ? window.scrollY : 0;
   }, [location.pathname]);
 
   useEffect(() => {
     if (pathHidden) return;
+
     let ticking = false;
     const onScroll = () => {
       if (ticking) return;
       ticking = true;
       requestAnimationFrame(() => {
         const y = window.scrollY;
-        if (y > lastY + 12 && y > 80) setVisible(false);
-        else if (y < lastY - 8) setVisible(true);
-        setLastY(y);
+        const prev = lastYRef.current;
+        if (y > prev + 12 && y > 80) setVisible(false);
+        else if (y < prev - 8) setVisible(true);
+        lastYRef.current = y;
         ticking = false;
       });
     };
+
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
-  }, [lastY, pathHidden]);
+  }, [pathHidden]);
 
   if (pathHidden) return null;
 
