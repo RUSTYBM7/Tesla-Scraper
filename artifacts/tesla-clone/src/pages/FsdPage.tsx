@@ -21,7 +21,7 @@ export default function FsdPage() {
         backgroundImage={`${BASE}fsd-highway.jpg`}
         eyebrow="Autonomy"
         title="Full Self-Driving (Supervised)"
-        subtitle="Educational overview. Features require active supervision and vary by region and software version."
+        subtitle="Requires active driver supervision. Feature availability varies by region and software version."
         isMobile={isMobile}
       >
         <TeslaButton variant="light" size="lg" onClick={() => navigate('/demo-drive')}>Schedule a Demo</TeslaButton>
@@ -38,7 +38,7 @@ export default function FsdPage() {
       </section>
       <section style={{ background: T.dark, padding: isMobile ? '48px 24px' : '64px 40px', textAlign: 'center' }}>
         <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px', maxWidth: '520px', margin: '0 auto 24px', lineHeight: 1.6 }}>
-          This page is for demonstration. Do not rely on it for real vehicle capability or regulatory claims.
+          Always keep your hands on the wheel and pay attention to the road.
         </p>
         <TeslaButton variant="light" onClick={() => navigate('/configure/model-3')}>Design Yours</TeslaButton>
       </section>

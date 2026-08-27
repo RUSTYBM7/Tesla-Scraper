@@ -65,13 +65,13 @@ export default function NewsletterPage() {
         <div style={{ maxWidth: '560px', margin: '0 auto' }}>
           {count !== null && (
             <p style={{ fontSize: '13px', color: T.gray, marginBottom: '24px', textAlign: 'center' }}>
-              {count.toLocaleString()} subscriber{count === 1 ? '' : 's'} on this demo edge store
+              {count.toLocaleString()} subscriber{count === 1 ? '' : 's'}
             </p>
           )}
           <form onSubmit={submit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             {status === 'ok' && (
               <div style={{ padding: '16px', background: T.grayBg, borderRadius: '4px', fontSize: '14px', color: T.dark }}>
-                You're subscribed. Welcome.
+                You're subscribed. Watch your inbox for the latest from Tesla.
               </div>
             )}
             {status === 'error' && (

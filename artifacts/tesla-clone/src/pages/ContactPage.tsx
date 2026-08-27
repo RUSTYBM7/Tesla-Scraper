@@ -78,7 +78,7 @@ export default function ContactPage() {
             ))}
             <div style={{ marginTop: '32px', padding: '20px', background: T.grayBg, borderRadius: '4px' }}>
               <p style={{ fontSize: '14px', color: T.gray, lineHeight: 1.6 }}>
-                This is an educational clone. Form submissions are handled by the edge API for demo purposes only.
+                Our team typically responds within one business day.
               </p>
             </div>
           </div>

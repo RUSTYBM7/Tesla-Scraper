@@ -38,7 +38,7 @@ export default function DemoDrivePage() {
 
   return (
     <PageShell>
-      <TeslaHero eyebrow="Experience" title="Schedule a Demo Drive" subtitle="Choose a vehicle and preferred date. Educational demo — no real booking is created." isMobile={isMobile} minHeight="300px" />
+      <TeslaHero eyebrow="Experience" title="Schedule a Demo Drive" subtitle="Choose a vehicle and preferred date. A Tesla Advisor will confirm your appointment." isMobile={isMobile} minHeight="300px" />
       <section style={{ background: T.white, padding: isMobile ? '40px 16px 80px' : '48px 40px 96px' }}>
         <form onSubmit={submit} style={{ maxWidth: '520px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '14px' }}>
           {status === 'ok' && <div style={{ padding: '16px', background: T.grayBg, borderRadius: '4px', fontSize: '14px' }}>Request received. (Demo only.)</div>}

@@ -3,14 +3,13 @@ import { useNavigate } from 'react-router-dom';
 export default function Footer() {
   const navigate = useNavigate();
   const links = [
-    { label: 'Educational clone · Not affiliated with Tesla, Inc.', action: () => navigate('/') },
+    { label: 'Tesla © 2026', action: () => navigate('/') },
     { label: 'Privacy & Legal', action: () => navigate('/legal') },
     { label: 'Vehicle Recalls', action: () => navigate('/recalls') },
-    { label: 'Support', action: () => navigate('/support') },
     { label: 'Contact', action: () => navigate('/contact') },
+    { label: 'News', action: () => navigate('/newsletter') },
+    { label: 'Get Updates', action: () => navigate('/newsletter') },
     { label: 'Locations', action: () => navigate('/locations') },
-    { label: 'Careers', action: () => navigate('/careers') },
-    { label: 'Newsletter', action: () => navigate('/newsletter') },
   ];
   return (
     <footer style={{ background: '#fff', padding: '16px 48px 24px', borderTop: '1px solid #e5e5e5', display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: '4px 20px' }}>

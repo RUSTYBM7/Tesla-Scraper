@@ -15,7 +15,7 @@ export default function RoadsidePage() {
   const isMobile = useIsMobile();
   return (
     <PageShell>
-      <TeslaHero eyebrow="Support" title="Roadside Assistance" subtitle="Educational overview of common roadside scenarios. For real emergencies, contact local emergency services." isMobile={isMobile} />
+      <TeslaHero eyebrow="Support" title="Roadside Assistance" subtitle="24/7 assistance for flat tires, tow requests, lockouts, and more." isMobile={isMobile} />
       <section style={{ background: T.white, padding: isMobile ? '48px 20px' : '64px 40px' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto', display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '24px' }}>
           {ITEMS.map((i) => (

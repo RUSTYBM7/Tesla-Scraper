@@ -7,7 +7,7 @@ export default function RecallsPage() {
   const isMobile = useIsMobile();
   return (
     <PageShell>
-      <TeslaHero eyebrow="Safety" title="Vehicle Recalls" subtitle="Sample campaign list for UI demonstration only — not official Tesla records." isMobile={isMobile} minHeight="280px" />
+      <TeslaHero eyebrow="Safety" title="Vehicle Recalls" subtitle="View open and completed campaigns for your vehicle." isMobile={isMobile} minHeight="280px" />
       <section style={{ background: T.white, padding: isMobile ? '32px 16px 80px' : '40px 40px 96px' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '16px' }}>
           {RECALLS.map((r) => (

@@ -22,7 +22,7 @@ export default function AboutPage() {
   const isMobile = useIsMobile();
   return (
     <PageShell>
-      <TeslaHero eyebrow="About" title="Accelerating Sustainable Energy" subtitle="Educational overview of Tesla's mission and milestones. Not affiliated with Tesla, Inc." isMobile={isMobile} />
+      <TeslaHero eyebrow="About" title="Accelerating Sustainable Energy" subtitle="Accelerating the world's transition to sustainable energy." isMobile={isMobile} />
       <section style={{ background: T.white, padding: isMobile ? '48px 20px' : '64px 40px' }}>
         <div style={{ maxWidth: '720px', margin: '0 auto', textAlign: 'center' }}>
           <h2 style={{ fontSize: isMobile ? '26px' : '36px', fontWeight: 700, color: T.dark, marginBottom: '16px' }}>Mission</h2>

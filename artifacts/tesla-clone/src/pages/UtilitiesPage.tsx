@@ -10,7 +10,7 @@ export default function UtilitiesPage() {
   const commercial = ENERGY_PRODUCTS.filter((p) => p.category === 'utility' || p.slug === 'megapack');
   return (
     <PageShell>
-      <TeslaHero eyebrow="Commercial & Utilities" title="Scale Energy Storage" subtitle="Megapack and utility-scale solutions — educational product overview." isMobile={isMobile} />
+      <TeslaHero eyebrow="Commercial & Utilities" title="Scale Energy Storage" subtitle="Megapack and utility-scale battery storage for grid and commercial customers." isMobile={isMobile} />
       <section style={{ background: T.white, padding: isMobile ? '48px 20px' : '64px 40px' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <p style={{ fontSize: '16px', color: T.gray, lineHeight: 1.75, marginBottom: '32px' }}>

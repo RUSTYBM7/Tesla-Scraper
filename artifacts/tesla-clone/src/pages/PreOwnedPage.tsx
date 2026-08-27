@@ -73,7 +73,7 @@ export default function PreOwnedPage() {
 
   return (
     <PageShell>
-      <TeslaHero eyebrow="Inventory" title="Pre-Owned" subtitle="Filter by model, price, mileage, and CPO status. Demo inventory for educational use." isMobile={isMobile} />
+      <TeslaHero eyebrow="Inventory" title="Pre-Owned" subtitle="Explore Certified Pre-Owned and used inventory. Filter by model, price, and mileage." isMobile={isMobile} />
 
       <section style={{ background: T.white, padding: isMobile ? '24px 16px 0' : '32px 40px 0' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>

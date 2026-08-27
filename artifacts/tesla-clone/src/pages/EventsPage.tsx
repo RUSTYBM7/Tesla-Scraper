@@ -9,7 +9,7 @@ export default function EventsPage() {
   const isMobile = useIsMobile();
   return (
     <PageShell>
-      <TeslaHero eyebrow="Community" title="Events" subtitle="Demo drives, workshops, and owner meetups — sample calendar for this educational site." isMobile={isMobile} />
+      <TeslaHero eyebrow="Community" title="Events" subtitle="Demo drives, workshops, and owner meetups near you." isMobile={isMobile} />
       <section style={{ background: T.white, padding: isMobile ? '40px 16px 80px' : '48px 40px 96px' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '16px' }}>
           {EVENTS.map((ev) => (

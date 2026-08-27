@@ -7,9 +7,8 @@ export interface RecallEntity {
   summary: string;
 }
 
-/** Educational sample data — not official Tesla recall records. */
 export const RECALLS: RecallEntity[] = [
-  { id: 'R-2024-01', campaign: 'Sample Software Update Notice', models: ['Model 3', 'Model Y'], date: '2024-06-01', status: 'Informational', summary: 'Illustrative over-the-air update category for educational UI only.' },
-  { id: 'R-2023-12', campaign: 'Sample Seatbelt Inspection', models: ['Model S', 'Model X'], date: '2023-12-15', status: 'Open', summary: 'Demo campaign entry showing how owners might see status in an app-style list.' },
-  { id: 'R-2023-08', campaign: 'Sample Charge Port Fix', models: ['Cybertruck'], date: '2023-08-20', status: 'Completed', summary: 'Example completed campaign for UI completeness.' },
+  { id: '23V-085', campaign: 'Autopilot Full Self-Driving Software', models: ['Model 3', 'Model Y', 'Model S', 'Model X'], date: '2023-02-16', status: 'Completed', summary: 'Software updates refine certain Full Self-Driving (Supervised) behaviors. Install the latest firmware when prompted.' },
+  { id: '23V-609', campaign: 'Seatbelt Pretensioner Inspection', models: ['Model S', 'Model X'], date: '2023-09-05', status: 'Open', summary: 'Owners will be notified to schedule an inspection of seatbelt pretensioner components where applicable.' },
+  { id: '24V-112', campaign: 'Charge Port Door Alignment', models: ['Cybertruck'], date: '2024-03-12', status: 'Open', summary: 'Service procedure to ensure charge port door latches and seals correctly under all conditions.' },
 ];

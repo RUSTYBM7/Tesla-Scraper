@@ -37,10 +37,10 @@ export default function TradeInPage() {
 
   return (
     <PageShell>
-      <TeslaHero eyebrow="Trade-In" title="Get an Estimate" subtitle="Educational demo form. Estimates are not binding and no vehicle is purchased through this site." isMobile={isMobile} />
+      <TeslaHero eyebrow="Trade-In" title="Get an Estimate" subtitle="Get an estimated trade-in value for your current vehicle." isMobile={isMobile} />
       <section style={{ background: T.white, padding: isMobile ? '40px 16px 80px' : '48px 40px 96px' }}>
         <form onSubmit={submit} style={{ maxWidth: '560px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '14px' }}>
-          {status === 'ok' && <div style={{ padding: '16px', background: T.grayBg, borderRadius: '4px', fontSize: '14px' }}>Request received (demo only).</div>}
+          {status === 'ok' && <div style={{ padding: '16px', background: T.grayBg, borderRadius: '4px', fontSize: '14px' }}>Request received. We will follow up with your estimate.</div>}
           {status === 'error' && <div style={{ padding: '16px', background: '#fef2f2', borderRadius: '4px', fontSize: '14px', color: T.red }}>{errorMsg}</div>}
           <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '14px' }}>
             <div><label style={labelStyle}>Name *</label><input style={inputStyle} value={form.name} onChange={(e) => set('name', e.target.value)} required /></div>

@@ -21,7 +21,7 @@ export default function AccountPage() {
 
   return (
     <PageShell>
-      <TeslaHero eyebrow="Account" title="Order Status" subtitle="Demo lookup only. Try RN123456 or RN654321." isMobile={isMobile} minHeight="280px" />
+      <TeslaHero eyebrow="Account" title="Order Status" subtitle="Enter your order number to view production and delivery status." isMobile={isMobile} minHeight="280px" />
       <section style={{ background: T.white, padding: isMobile ? '40px 16px 80px' : '48px 40px 96px' }}>
         <form onSubmit={lookup} style={{ maxWidth: '480px', margin: '0 auto 40px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
           <div>
@@ -31,7 +31,7 @@ export default function AccountPage() {
           <TeslaButton type="submit" variant="dark">Look Up</TeslaButton>
         </form>
         {result === 'none' && (
-          <p style={{ textAlign: 'center', color: T.gray, fontSize: '14px' }}>No demo order found for that number.</p>
+          <p style={{ textAlign: 'center', color: T.gray, fontSize: '14px' }}>We couldn't find an order with that number.</p>
         )}
         {result && result !== 'none' && (
           <div style={{ maxWidth: '560px', margin: '0 auto', padding: '24px', background: T.grayBg, borderRadius: '4px' }}>

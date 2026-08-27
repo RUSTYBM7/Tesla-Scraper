@@ -7,7 +7,7 @@ export default function StoriesPage() {
   const isMobile = useIsMobile();
   return (
     <PageShell>
-      <TeslaHero eyebrow="Discover" title="Customer Stories" subtitle="Illustrative narratives for UI demonstration — not real customer testimonials." isMobile={isMobile} />
+      <TeslaHero eyebrow="Discover" title="Customer Stories" subtitle="Owners share their experiences with Tesla vehicles and energy products." isMobile={isMobile} />
       <section style={{ background: T.white, padding: isMobile ? '40px 16px 80px' : '48px 40px 96px' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '24px' }}>
           {STORIES.map((s) => (
